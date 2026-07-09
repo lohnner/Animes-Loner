@@ -6,13 +6,14 @@ const { articles, catalogo, comics } = await import(`./catalogo.js?v=${runtimeAs
 const defaultAvatarPath = "Avatar/homemaranha.png";
 const profileAvatarRewards = [
   {
-    id: "naruto-10-mangas",
+    id: "naruto-1-volume",
     tabId: "naruto",
     tabTitle: "Naruto",
     universe: "Naruto",
-    title: "Leia 10 mangás do universo Naruto",
-    description: "Complete leituras marcadas nos mangás cadastrados do universo Naruto.",
-    requiredReads: 10,
+    comicId: "naruto-1-2000",
+    title: "Leia o primeiro volume de Naruto",
+    description: "Marque Naruto #1 como lido para desbloquear este avatar.",
+    requiredReads: 1,
     avatarPath: "Avatar/naruto-uzumaki.png",
     avatarName: "Naruto Uzumaki"
   }
@@ -503,12 +504,12 @@ function renderHomeRecentHqs() {
             <img src="${imageAssetPath(series.cover)}" alt="Capa de ${escapeHtml(series.coverTitle)}" />
           </span>
           <span class="recent-hq-body">
-            <span class="recent-hq-kicker">${escapeHtml(series.universe || "Série")}</span>
+            <span class="recent-hq-kicker">${escapeHtml(series.universe || "Mangá")}</span>
             <strong>${escapeHtml(series.title)}</strong>
-            <small>${escapeHtml(series.character || series.universe || "Série")}</small>
+            <small>${escapeHtml(series.character || series.universe || "Mangá")}</small>
             <span class="recent-hq-meta">
               <span>${escapeHtml(series.year || "Ano")}</span>
-              <span>Série</span>
+              <span>Mangá</span>
             </span>
           </span>
         </a>
@@ -783,8 +784,17 @@ function readCountByUniverse(interactions, universe) {
   return interactions.filter((item) => item.read && normalizeCatalogKey(item.universe) === universeKey).length;
 }
 
+function hasReadComic(interactions, comicId) {
+  return interactions.some((item) => item.read && (item.comicId === comicId || item.id === comicId));
+}
+
 function profileAchievementState(interactions, reward) {
-  const current = readCountByUniverse(interactions, reward.universe);
+  let current = readCountByUniverse(interactions, reward.universe);
+
+  if (reward.comicId) {
+    current = hasReadComic(interactions, reward.comicId) ? 1 : 0;
+  }
+
   const required = Number(reward.requiredReads || 1);
   const unlocked = current >= required;
 
