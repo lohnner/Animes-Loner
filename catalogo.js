@@ -9,6 +9,15 @@ export const articles = [
       "Primeiro volume do mangá Naruto, publicado pela Shueisha em 2000 com o título Uzumaki Naruto!!. Na Loner Mangá, este verbete reúne capa, dados editoriais, personagens centrais e relações com a cronologia da série."
   },
   {
+    id: "naruto-2",
+    title: "Naruto #2",
+    category: "Volume",
+    year: "2000",
+    tags: ["Shueisha", "Weekly Shōnen Jump", "Masashi Kishimoto"],
+    summary:
+      "Segundo volume do mangá Naruto, reunindo os capítulos 8 a 17 e avançando para a primeira missão de Naruto, Sasuke e Sakura como Time 7."
+  },
+  {
     id: "naruto-serie",
     title: "Naruto (1999)",
     category: "Série",
@@ -97,6 +106,20 @@ export const acervo = [
     xpReward: 187,
     fileName: "naruto-1-2000.html",
     keywords: ["Naruto", "Naruto Uzumaki", "Uzumaki Naruto!!", "Konoha", "Iruka", "Mizuki", "Raposa de Nove Caudas", "Kyuubi", "shōnen", "ninja"]
+  },
+  {
+    tipo: "hq",
+    id: "naruto-2-2000",
+    title: "Naruto #2 (2000)",
+    shortTitle: "Naruto #2",
+    universe: "Naruto",
+    series: "Naruto",
+    href: "Mangás/Naruto/naruto-2-2000.html",
+    cover: "Mangás/Naruto/Naruto%20%232.png",
+    pageCount: 200,
+    xpReward: 200,
+    fileName: "naruto-2-2000.html",
+    keywords: ["Naruto", "Naruto Uzumaki", "Sasuke Uchiha", "Sakura Haruno", "Kakashi Hatake", "Tazuna", "Zabuza Momochi", "Time 7", "shōnen", "ninja"]
   },
   {
     tipo: "hq",
