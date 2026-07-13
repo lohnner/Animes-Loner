@@ -40,6 +40,42 @@ const profileAvatarRewards = [
     requiredReads: 1,
     avatarPath: "Avatar/Naruto/naruto3.png",
     avatarName: "Naruto 3"
+  },
+  {
+    id: "naruto-4-volume",
+    tabId: "naruto",
+    tabTitle: "Naruto",
+    universe: "Naruto",
+    comicId: "naruto-4-2000",
+    title: "Volume 4",
+    description: "Leia o Volume 4",
+    requiredReads: 1,
+    avatarPath: "Avatar/Naruto/naruto4.png",
+    avatarName: "Naruto 4"
+  },
+  {
+    id: "naruto-5-volume",
+    tabId: "naruto",
+    tabTitle: "Naruto",
+    universe: "Naruto",
+    comicId: "naruto-5-2000",
+    title: "Volume 5",
+    description: "Leia o Volume 5",
+    requiredReads: 1,
+    avatarPath: "Avatar/Naruto/naruto5.png",
+    avatarName: "Naruto 5"
+  },
+  {
+    id: "naruto-6-volume",
+    tabId: "naruto",
+    tabTitle: "Naruto",
+    universe: "Naruto",
+    comicId: "naruto-6-2001",
+    title: "Volume 6",
+    description: "Leia o Volume 6",
+    requiredReads: 1,
+    avatarPath: "Avatar/Naruto/naruto6.png",
+    avatarName: "Naruto 6"
   }
 ];
 const profileCacheKey = "loner-manga:lastProfile";
