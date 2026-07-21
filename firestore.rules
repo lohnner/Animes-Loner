@@ -7,8 +7,6 @@ service cloud.firestore { match /databases/{database}/documents {
     && request.resource.data.lm is int && request.resource.data.lm >= 0
     && request.resource.data.inventoryCount is int && request.resource.data.inventoryCount >= 0
     && request.resource.data.inventoryCapacity is int && request.resource.data.inventoryCapacity >= 15
-    && request.resource.data.npcCount is int && request.resource.data.npcCount >= 0
-    && request.resource.data.npcCapacity is int && request.resource.data.npcCapacity >= 20
     && request.resource.data.marketListingCount is int && request.resource.data.marketListingCount >= 0
     && request.resource.data.marketCapacity is int && request.resource.data.marketCapacity >= 5
     && request.resource.data.collectionDistinctCount is int && request.resource.data.collectionDistinctCount >= 0; }
@@ -20,12 +18,10 @@ service cloud.firestore { match /databases/{database}/documents {
   match /comics/{comicId}/interactions/{uid} { allow read: if true; allow create,update: if owner(uid) && request.resource.data.uid == uid; allow delete: if owner(uid); }
   match /shops/{uid} {
     allow read: if true;
-    allow create: if owner(uid) && validShop(uid) && request.resource.data.lm == 200 && request.resource.data.inventoryCapacity == 15 && request.resource.data.npcCapacity == 20 && request.resource.data.marketCapacity == 5;
+    allow create: if owner(uid) && validShop(uid) && request.resource.data.lm == 200 && request.resource.data.inventoryCapacity == 15 && request.resource.data.marketCapacity == 5;
     allow update: if signedIn() && validShop(uid); allow delete: if false;
     match /inventory/{id} { allow read,write: if owner(uid); }
     match /boxes/{id} { allow read,write: if owner(uid); }
-    match /npcItems/{id} { allow read,write: if owner(uid); }
-    match /notifications/{id} { allow read,write: if owner(uid); }
     match /collectionVolumes/{id} { allow read,write: if owner(uid); }
   }
   match /marketListings/{id} {
