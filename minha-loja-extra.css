@@ -1,3 +1,4 @@
 .box-options{grid-template-columns:repeat(3,minmax(0,1fr))}
 .notification-list{display:grid;gap:10px}.notification-card{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;background:#0b1019;border:1px solid #303a50;border-radius:12px;padding:10px}.notification-card img{width:64px;aspect-ratio:300/460;object-fit:cover;border-radius:7px}.notification-card p{margin:.4rem 0 0}
 @media(max-width:850px){.box-options{grid-template-columns:1fr}}
+.panel-heading p:has([data-npc-cooldown]){display:none}

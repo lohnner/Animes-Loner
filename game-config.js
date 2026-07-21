@@ -9,7 +9,7 @@ export const GAME_CONFIG = Object.freeze({
     premium: { id: "premium", label: "Caixa Lacrada", price: 500, quantityWeights: { 4: 20, 5: 50, 6: 20, 7: 9, 8: 1 }, excludedConditions: [], guaranteedSealed: 1 },
     free: { id: "free", label: "Caixa Gratuita", price: 0, quantityWeights: { 2: 100 }, excludedConditions: ["lacrado", "novo"] }
   },
-  npcAutoSale: { minMinutes: 20, maxMinutes: 60, maxNotifications: 10 },
+  npcAutoSale: { minMinutes: 10, maxMinutes: 30, maxNotifications: 10 },
   conditions: {
     lacrado: { label: "LACRADO", weight: 1, npcValue: 50 },
     novo: { label: "NOVO", weight: 10, npcValue: 32 },

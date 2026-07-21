@@ -192,6 +192,7 @@ let currentProfile = null;
 let currentInteraction = {};
 let interactionUnsubscribe = null;
 let readersUnsubscribe = null;
+let sidebarShopUnsubscribe = null;
 let volumeActions = null;
 let readersButton = null;
 let pendingAuthError = "";
@@ -1213,6 +1214,8 @@ function renderSignedOut() {
   registerForm.hidden = true;
   accountPanel.hidden = true;
   accountPanel.innerHTML = "";
+  if (sidebarShopUnsubscribe) sidebarShopUnsubscribe();
+  sidebarShopUnsubscribe = null;
   authBadge.textContent = "Visitante";
   authBadge.style.color = "var(--muted)";
 
@@ -1248,6 +1251,7 @@ function renderSignedIn(profile, options = {}) {
           <span style="width: ${progress.percent}%"></span>
         </div>
         <small>${progress.current} / ${progress.next} XP</small>
+        <small><strong id="sidebarLm">—</strong> LM · <strong id="sidebarCollection">—</strong> volumes na coleção</small>
       </div>
     </div>
     <div class="profile-actions">
@@ -1255,6 +1259,20 @@ function renderSignedIn(profile, options = {}) {
       <button class="button ghost" type="button" id="logoutButton">Sair</button>
     </div>
   `;
+  if (sidebarShopUnsubscribe) sidebarShopUnsubscribe();
+  sidebarShopUnsubscribe = null;
+  if (firebaseServices && profile.uid) {
+    sidebarShopUnsubscribe = firebaseServices.onSnapshot(
+      firebaseServices.doc(firebaseServices.db, "shops", profile.uid),
+      (snapshot) => {
+        const shop = snapshot.data() || {};
+        const lm = document.querySelector("#sidebarLm");
+        const collection = document.querySelector("#sidebarCollection");
+        if (lm) lm.textContent = formatNumber(shop.lm || 0);
+        if (collection) collection.textContent = formatNumber(shop.collectionDistinctCount || 0);
+      }
+    );
+  }
   setMessage("Perfil conectado na Loner Mangá.", "success");
 
   if (!options.skipCache) {
@@ -2904,7 +2922,22 @@ async function startAuth() {
   });
 }
 
+function renderBleachVolumes() {
+  const pageName = decodeURIComponent(window.location.pathname.split("/").pop() || "").toLowerCase();
+  if (pageName !== "bleach.html") return;
+  const gallery = document.querySelector(".volume-gallery");
+  if (!gallery) return;
+  const volumes = catalogo.hqs
+    .filter((item) => item.series === "Bleach")
+    .sort((a, b) => Number(a.title.match(/Volume\s+(\d+)/i)?.[1]) - Number(b.title.match(/Volume\s+(\d+)/i)?.[1]));
+  gallery.innerHTML = volumes.map((volume) => {
+    const number = Number(volume.title.match(/Volume\s+(\d+)/i)?.[1]);
+    return `<a class="volume-card" href="${assetPath(volume.href)}"><img src="${imageAssetPath(volume.cover)}" alt="Capa do volume ${number} de Bleach" loading="lazy"><span>Volume ${number}</span></a>`;
+  }).join("");
+}
+
 normalizeAuthForms();
+renderBleachVolumes();
 renderHomeRecentHqs();
 renderCharacterIndex();
 setupSmartSearchPage();
