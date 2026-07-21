@@ -5,6 +5,8 @@ const volume = Object.values(comics).find((item) => item.fileName === fileName);
 if (!volume) throw new Error(`Volume não encontrado no catálogo: ${fileName}`);
 const number = Number(volume.title.match(/Volume\s+(\d+)/i)?.[1]);
 const year = volume.id.match(/-(\d{4})$/)?.[1] || "";
+volume.publicationDate ||= year;
+volume.chapters ||= "deste volume";
 const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
 const cover = `Bleach%20%23${number}.png`;
 
