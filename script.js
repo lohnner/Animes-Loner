@@ -3050,8 +3050,12 @@ function createBrasiliaClock() {
       sidebarShopData &&
       (sidebarShopData.boxStockHour !== hourKey || Number(sidebarShopData.boxHourlyStock?.free ?? 1) > 0)
     );
+    const hasShop = Boolean(currentUser && sidebarShopData);
+    const freeBoxStatus = hasShop
+      ? `<span class="brasilia-free-box-alert ${freeBoxAvailable ? "is-available" : "is-unavailable"}">Caixa Gratuita ${freeBoxAvailable ? "Disponível" : "Indisponível"}</span>`
+      : "";
     clock.dateTime = now.toISOString();
-    clock.innerHTML = `${freeBoxAvailable ? '<span class="brasilia-free-box-alert">Caixa Gratuita Disponível</span>' : ""}<span class="brasilia-clock-label">Horário de Brasília</span><strong>${formatter.format(now)}</strong>`;
+    clock.innerHTML = `${freeBoxStatus}<span class="brasilia-clock-label">Horário de Brasília</span><strong>${formatter.format(now)}</strong>`;
   };
   updateClock();
   window.setInterval(updateClock, 1000);

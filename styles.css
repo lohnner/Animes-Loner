@@ -2566,11 +2566,19 @@ body.dialog-open {
 
 .brasilia-clock .brasilia-free-box-alert {
   margin-bottom: 4px;
-  color: #ff5267;
   font-size: 0.72rem;
   letter-spacing: 0.035em;
+}
+
+.brasilia-clock .brasilia-free-box-alert.is-available {
+  color: #ff5267;
   text-shadow: 0 0 12px rgba(255, 50, 76, 0.55);
   animation: brasiliaFreeBoxPulse 1.1s ease-in-out infinite alternate;
+}
+
+.brasilia-clock .brasilia-free-box-alert.is-unavailable {
+  color: #aeb5c3;
+  text-shadow: none;
 }
 
 @keyframes brasiliaFreeBoxPulse {
