@@ -87,7 +87,15 @@ async function showRewards(rewards,title="Resultado da caixa"){
   if(!dialog.open)dialog.showModal();
   if(!reducedMotion)await new Promise(resolve=>setTimeout(resolve,1500));
   if(showRewards.token!==token||!dialog.open)return;
-  content.innerHTML=`<header class="reward-result-heading"><p class="eyebrow">CAIXA ABERTA</p><h2>${title}</h2><p>Confira a condição e o valor de venda de cada exemplar.</p></header><div class="store-grid reward-grid">${rewards.map((x,i)=>itemCard(x,"reward").replace('class="item-card','style="--reward-delay:'+i*.14+'s" class="item-card reward-card')).join("")}</div>`;
+  const orderedRewards=[...rewards].sort((a,b)=>(b.condition==="lacrado")-(a.condition==="lacrado"));
+  const sealedCount=orderedRewards.filter(item=>item.condition==="lacrado").length;
+  const totalValue=orderedRewards.reduce((sum,item)=>sum+(GAME_CONFIG.conditions[item.condition]?.saleValue||0),0);
+  const cards=orderedRewards.map((item,index)=>{
+    const regularIndex=index-sealedCount;
+    const delay=item.condition==="lacrado"?index*.2:sealedCount?sealedCount*.2+.75+regularIndex*.14:index*.14;
+    return itemCard(item,"reward").replace('class="item-card',`style="--reward-delay:${delay}s" class="item-card reward-card`);
+  }).join("");
+  content.innerHTML=`<header class="reward-result-heading"><p class="eyebrow">CAIXA ABERTA</p><h2>${title} <span class="reward-total">= ${totalValue} LM</span></h2></header>${sealedCount?`<div class="sealed-announcement">✦ ${sealedCount===1?"UM LACRADO ENCONTRADO":`${sealedCount} LACRADOS ENCONTRADOS`} ✦</div>`:""}<div class="store-grid reward-grid">${cards}</div>`;
 }
 async function handleClick(e){
   const el=e.target.closest("[data-act]");if(!el)return;
@@ -95,7 +103,10 @@ async function handleClick(e){
   if(act==="buyBox")await action("buyBox",{type});
   if(act==="openBox"){const result=await action("openBox",{boxId:id});if(result?.rewards)showRewards(result.rewards)}
   if(act==="claimBox")await action("claimBox",{boxId:id});
-  if(act==="sellToNpc"&&confirm("Vender este exemplar pelo valor indicado?"))await action("sellToNpc",{copyId:id});
+  if(act==="sellToNpc"){
+    const selected=inventory.find(item=>(item.copyId||item.id)===id);
+    if(selected?.condition!=="lacrado"||confirm("Este exemplar está LACRADO, a melhor condição possível. Deseja realmente vendê-lo?"))await action("sellToNpc",{copyId:id});
+  }
   if(act==="discard"&&confirm("Descartar definitivamente este exemplar?"))await action("discardItem",{copyId:id});
   if(act==="collect")await action("moveToCollection",{copyId:id});
   if(act==="list"){
