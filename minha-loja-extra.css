@@ -7,3 +7,24 @@
 .pending-rewards{margin-top:24px;padding-top:18px;border-top:1px solid #303a50}
 @media(max-width:600px){.collection-dialog{width:calc(100vw - 12px);height:calc(100vh - 12px);padding:12px}.collection-dialog .store-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.collection-dialog .item-body{padding:6px}.collection-dialog .item-body h3,.collection-dialog .item-body strong{font-size:.72rem}.dialog-x{width:38px;height:38px}}
 .collection-dialog{max-height:none}
+.reward-dialog{width:min(1280px,calc(100vw - 32px));height:min(720px,calc(100vh - 32px));max-width:none;max-height:none;box-sizing:border-box;overflow:auto;background:radial-gradient(circle at 50% 15%,#35205f 0,#111722 46%,#090d14 100%)}
+.reward-dialog #dialogContent{clear:both;min-height:calc(100% - 58px)}
+.reward-opening-stage{position:relative;display:grid;place-items:center;align-content:center;min-height:560px;overflow:hidden;text-align:center}
+.reward-opening-stage h2{position:relative;z-index:3;margin-top:28px;text-shadow:0 0 18px #a975ff}
+.reward-rays{position:absolute;width:520px;aspect-ratio:1;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(197,154,255,.42) 0 8deg,transparent 8deg 20deg);filter:blur(2px);animation:rewardRays 5s linear infinite}
+.reward-box{position:relative;z-index:2;width:180px;height:160px;filter:drop-shadow(0 0 32px #a975ff);animation:rewardBoxShake 1.05s ease-in-out both}
+.reward-box-body,.reward-box-lid{position:absolute;left:0;width:100%;box-sizing:border-box;border:4px solid #e2c9ff;background:linear-gradient(145deg,#8e52e8,#4d218f)}
+.reward-box-body{bottom:0;height:120px;display:grid;place-items:center;border-radius:12px 12px 22px 22px;color:#fff;font-size:2.6rem;font-weight:1000;letter-spacing:.08em}
+.reward-box-lid{top:18px;height:48px;border-radius:14px;transform-origin:10% 100%;animation:rewardLidOpen .55s 1s cubic-bezier(.2,.8,.2,1) forwards}
+.reward-result-heading{text-align:center;margin:0 auto 20px}.reward-result-heading h2{margin:.15em 0}.reward-result-heading p:last-child{color:#c7cfdd}
+.reward-dialog .reward-grid{grid-template-columns:repeat(auto-fit,minmax(145px,1fr));align-items:start}
+.reward-card{opacity:0;transform:translateY(34px) scale(.9);animation:rewardCardReveal .55s calc(var(--reward-delay) + .08s) cubic-bezier(.2,.8,.2,1) forwards}
+.reward-card.lacrado{animation:rewardCardReveal .55s calc(var(--reward-delay) + .08s) cubic-bezier(.2,.8,.2,1) forwards,rewardSealedGlow 1.4s calc(var(--reward-delay) + .5s) ease-in-out infinite alternate}
+.npc-price{display:block;padding:8px;border-radius:8px;background:#162536;color:#8ff0b8;text-align:center;font-size:.9rem}
+@keyframes rewardBoxShake{0%,18%{transform:translateY(15px) scale(.78);opacity:0}28%{opacity:1}38%,54%,70%,86%{transform:translateX(-10px) rotate(-4deg)}46%,62%,78%,94%{transform:translateX(10px) rotate(4deg)}100%{transform:translateX(0) scale(1.08)}}
+@keyframes rewardLidOpen{to{transform:translate(-25px,-95px) rotate(-28deg)}}
+@keyframes rewardRays{to{transform:rotate(360deg)}}
+@keyframes rewardCardReveal{to{opacity:1;transform:none}}
+@keyframes rewardSealedGlow{to{box-shadow:0 0 0 3px #ffe17a,0 0 42px rgba(255,216,91,.8)}}
+@media(max-width:600px){.reward-dialog{width:calc(100vw - 12px);height:calc(100vh - 12px);padding:12px}.reward-opening-stage{min-height:70vh}.reward-box{width:130px;height:120px}.reward-box-body{height:88px;font-size:2rem}.reward-box-lid{height:38px}.reward-rays{width:360px}.reward-dialog .reward-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.reward-card .item-body{padding:7px}.reward-card .item-body h3,.reward-card .item-body span,.reward-card .npc-price{font-size:.72rem}}
+@media(prefers-reduced-motion:reduce){.reward-rays,.reward-box,.reward-box-lid,.reward-card,.reward-card.lacrado{animation:none!important;opacity:1;transform:none}}
