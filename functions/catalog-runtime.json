@@ -1510,5 +1510,176 @@
     "cover": "Mangás/Yu-Gi-Oh!/Yu-Gi-Oh!%20%233.png",
     "pageUrl": "Mangás/Yu-Gi-Oh!/yu-gi-oh-3-1997.html",
     "displayTitle": "Yu-Gi-Oh! / Volume 3"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-1-1991",
+    "volumeNumber": 1,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%231.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-1-1991.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 1"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-2-1991",
+    "volumeNumber": 2,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%232.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-2-1991.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 2"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-3-1991",
+    "volumeNumber": 3,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%233.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-3-1991.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 3"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-4-1991",
+    "volumeNumber": 4,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%234.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-4-1991.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 4"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-5-1992",
+    "volumeNumber": 5,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%235.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-5-1992.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 5"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-6-1992",
+    "volumeNumber": 6,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%236.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-6-1992.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 6"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-7-1992",
+    "volumeNumber": 7,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%237.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-7-1992.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 7"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-8-1992",
+    "volumeNumber": 8,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%238.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-8-1992.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 8"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-9-1992",
+    "volumeNumber": 9,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%239.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-9-1992.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 9"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-10-1993",
+    "volumeNumber": 10,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%2310.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-10-1993.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 10"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-11-1993",
+    "volumeNumber": 11,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%2311.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-11-1993.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 11"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-12-1993",
+    "volumeNumber": 12,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%2312.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-12-1993.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 12"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-13-1993",
+    "volumeNumber": 13,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%2313.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-13-1993.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 13"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-14-1993",
+    "volumeNumber": 14,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%2314.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-14-1993.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 14"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-15-1994",
+    "volumeNumber": 15,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%2315.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-15-1994.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 15"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-16-1994",
+    "volumeNumber": 16,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%2316.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-16-1994.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 16"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-17-1994",
+    "volumeNumber": 17,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%2317.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-17-1994.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 17"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-18-1994",
+    "volumeNumber": 18,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%2318.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-18-1994.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 18"
+  },
+  {
+    "mangaId": "yu-yu-hakusho",
+    "mangaTitle": "Yu Yu Hakusho",
+    "volumeId": "yu-yu-hakusho-19-1994",
+    "volumeNumber": 19,
+    "cover": "Mangás/Yu%20Yu%20Hakusho/Yu%20Yu%20Hakusho%20%2319.png",
+    "pageUrl": "Mangás/Yu%20Yu%20Hakusho/yu-yu-hakusho-19-1994.html",
+    "displayTitle": "Yu Yu Hakusho / Volume 19"
   }
 ]

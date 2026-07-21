@@ -2999,7 +2999,8 @@ function renderCatalogMangaVolumes() {
   const pageName = decodeURIComponent(window.location.pathname.split("/").pop() || "").toLowerCase();
   const seriesByPage = {
     "bleach.html": "Bleach",
-    "jujutsu-kaisen.html": "Jujutsu Kaisen"
+    "jujutsu-kaisen.html": "Jujutsu Kaisen",
+    "yu-yu-hakusho.html": "Yu Yu Hakusho"
   };
   const series = seriesByPage[pageName];
   if (!series) return;
