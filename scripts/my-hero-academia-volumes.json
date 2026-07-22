@@ -1,0 +1,464 @@
+[
+  {
+    "number": 1,
+    "releaseDate": "2014-11-04",
+    "chapters": [
+      1,
+      7
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880264880264315501/1200/08880264880264315501.jpg"
+  },
+  {
+    "number": 2,
+    "releaseDate": "2015-01-05",
+    "chapters": [
+      8,
+      17
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880297880264315501/1200/08880297880264315501.jpg"
+  },
+  {
+    "number": 3,
+    "releaseDate": "2015-04-03",
+    "chapters": [
+      18,
+      26
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880335880264315501/1200/08880335880264315501.jpg"
+  },
+  {
+    "number": 4,
+    "releaseDate": "2015-06-04",
+    "chapters": [
+      27,
+      35
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880420880264315501/1200/08880420880264315501.jpg"
+  },
+  {
+    "number": 5,
+    "releaseDate": "2015-08-04",
+    "chapters": [
+      36,
+      44
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880449880264315501/1200/08880449880264315501.jpg"
+  },
+  {
+    "number": 6,
+    "releaseDate": "2015-11-04",
+    "chapters": [
+      45,
+      53
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880488880264315501/1200/08880488880264315501.jpg"
+  },
+  {
+    "number": 7,
+    "releaseDate": "2016-02-04",
+    "chapters": [
+      54,
+      62
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880607880264315501/1200/08880607880264315501.jpg"
+  },
+  {
+    "number": 8,
+    "releaseDate": "2016-04-04",
+    "chapters": [
+      63,
+      71
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880654880264315501/1200/08880654880264315501.jpg"
+  },
+  {
+    "number": 9,
+    "releaseDate": "2016-06-03",
+    "chapters": [
+      72,
+      80
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880689880264315501/1200/08880689880264315501.jpg"
+  },
+  {
+    "number": 10,
+    "releaseDate": "2016-09-02",
+    "chapters": [
+      81,
+      89
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880779880264315501/1200/08880779880264315501.jpg"
+  },
+  {
+    "number": 11,
+    "releaseDate": "2016-11-04",
+    "chapters": [
+      90,
+      99
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08880809880264315501/1200/08880809880264315501.jpg"
+  },
+  {
+    "number": 12,
+    "releaseDate": "2017-02-03",
+    "chapters": [
+      100,
+      108
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881004880264315501/1200/08881004880264315501.jpg"
+  },
+  {
+    "number": 13,
+    "releaseDate": "2017-04-04",
+    "chapters": [
+      109,
+      118
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881049880264315501/1200/08881049880264315501.jpg"
+  },
+  {
+    "number": 14,
+    "releaseDate": "2017-06-02",
+    "chapters": [
+      119,
+      128
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881175880264315501/1200/08881175880264315501.jpg"
+  },
+  {
+    "number": 15,
+    "releaseDate": "2017-09-04",
+    "chapters": [
+      129,
+      137
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881202880264315501/1200/08881202880264315501.jpg"
+  },
+  {
+    "number": 16,
+    "releaseDate": "2017-11-02",
+    "chapters": [
+      138,
+      147
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881221880264315501/1200/08881221880264315501.jpg"
+  },
+  {
+    "number": 17,
+    "releaseDate": "2018-02-02",
+    "chapters": [
+      148,
+      157
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881320880264315501/1200/08881320880264315501.jpg"
+  },
+  {
+    "number": 18,
+    "releaseDate": "2018-04-04",
+    "chapters": [
+      158,
+      167
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881380880264315501/1200/08881380880264315501.jpg"
+  },
+  {
+    "number": 19,
+    "releaseDate": "2018-07-04",
+    "chapters": [
+      168,
+      177
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881512880264315501/1200/08881512880264315501.jpg"
+  },
+  {
+    "number": 20,
+    "releaseDate": "2018-09-04",
+    "chapters": [
+      178,
+      188
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881566880264315501/1200/08881566880264315501.jpg"
+  },
+  {
+    "number": 21,
+    "releaseDate": "2018-12-04",
+    "chapters": [
+      189,
+      200
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881624880264315501/1200/08881624880264315501.jpg"
+  },
+  {
+    "number": 22,
+    "releaseDate": "2019-02-04",
+    "chapters": [
+      201,
+      212
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881723880264315501/1200/08881723880264315501.jpg"
+  },
+  {
+    "number": 23,
+    "releaseDate": "2019-05-02",
+    "chapters": [
+      213,
+      224
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881797880264315501/1200/08881797880264315501.jpg"
+  },
+  {
+    "number": 24,
+    "releaseDate": "2019-08-02",
+    "chapters": [
+      225,
+      235
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08881880880264315501/1200/08881880880264315501.jpg"
+  },
+  {
+    "number": 25,
+    "releaseDate": "2019-12-04",
+    "chapters": [
+      236,
+      246
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08882074880264315501/1200/08882074880264315501.jpg"
+  },
+  {
+    "number": 26,
+    "releaseDate": "2020-03-04",
+    "chapters": [
+      247,
+      258
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08882225880264315501/1200/08882225880264315501.jpg"
+  },
+  {
+    "number": 27,
+    "releaseDate": "2020-07-03",
+    "chapters": [
+      259,
+      267
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08882332880264315501/1200/08882332880264315501.jpg"
+  },
+  {
+    "number": 28,
+    "releaseDate": "2020-09-04",
+    "chapters": [
+      268,
+      276
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08882378880264315501/1200/08882378880264315501.jpg"
+  },
+  {
+    "number": 29,
+    "releaseDate": "2021-01-04",
+    "chapters": [
+      277,
+      285
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08882474880264315501/1200/08882474880264315501.jpg"
+  },
+  {
+    "number": 30,
+    "releaseDate": "2021-04-02",
+    "chapters": [
+      286,
+      295
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08882590880264315501/1200/08882590880264315501.jpg"
+  },
+  {
+    "number": 31,
+    "releaseDate": "2021-08-04",
+    "chapters": [
+      296,
+      306
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000015669100/1200/08X10000000015669100.jpg"
+  },
+  {
+    "number": 32,
+    "releaseDate": "2021-10-04",
+    "chapters": [
+      307,
+      318
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000016959300/1200/08X10000000016959300.jpg"
+  },
+  {
+    "number": 33,
+    "releaseDate": "2022-02-04",
+    "chapters": [
+      319,
+      328
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000019482300/1200/08X10000000019482300.jpg"
+  },
+  {
+    "number": 34,
+    "releaseDate": "2022-05-02",
+    "chapters": [
+      329,
+      339
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000020852900/1200/08X10000000020852900.jpg"
+  },
+  {
+    "number": 35,
+    "releaseDate": "2022-07-04",
+    "chapters": [
+      340,
+      350
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000022178700/1200/08X10000000022178700.jpg"
+  },
+  {
+    "number": 36,
+    "releaseDate": "2022-10-04",
+    "chapters": [
+      351,
+      362
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000024400800/1200/08X10000000024400800.jpg"
+  },
+  {
+    "number": 37,
+    "releaseDate": "2023-02-03",
+    "chapters": [
+      363,
+      374
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000026579600/1200/08X10000000026579600.jpg"
+  },
+  {
+    "number": 38,
+    "releaseDate": "2023-06-02",
+    "chapters": [
+      375,
+      386
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000028683800/1200/08X10000000028683800.jpg"
+  },
+  {
+    "number": 39,
+    "releaseDate": "2023-11-02",
+    "chapters": [
+      387,
+      398
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000032349300/1200/08X10000000032349300.jpg"
+  },
+  {
+    "number": 40,
+    "releaseDate": "2024-04-04",
+    "chapters": [
+      399,
+      410
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000040008700/1200/08X10000000040008700.jpg"
+  },
+  {
+    "number": 41,
+    "releaseDate": "2024-08-02",
+    "chapters": [
+      411,
+      422
+    ],
+    "bonusChapters": 0,
+    "pageCount": 192,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000050563700/1200/08X10000000050563700.jpg"
+  },
+  {
+    "number": 42,
+    "releaseDate": "2024-12-04",
+    "chapters": [
+      423,
+      430
+    ],
+    "bonusChapters": 1,
+    "pageCount": 184,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/08X10000000055591900/1200/08X10000000055591900.jpg"
+  }
+]

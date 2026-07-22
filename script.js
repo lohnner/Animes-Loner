@@ -2869,6 +2869,10 @@ function dataErrorMessage(error) {
 }
 
 const mangaArcsByPage = {
+  "my-hero-academia.html": {
+    id: "myHeroAcademiaArcsDialog", title: "My Hero Academia",
+    arcs: [["Entrada na U.A.",1,21],["Festival Esportivo",22,44],["Assassino de Heróis",45,59],["Exames Finais e Kamino",60,97],["Licença Provisória",98,121],["Shie Hassaikai",122,162],["Festival Cultural",163,183],["Treinamento Conjunto",184,217],["Exército de Libertação",218,240],["Guerra de Libertação Paranormal",241,306],["Herói Sombrio",307,328],["Preparação para a Guerra Final",329,342],["Guerra Final",343,422],["Epílogo",423,431]]
+  },
   "one-punch-man.html": {
     id: "onePunchManArcsDialog", title: "One-Punch Man",
     arcs: [["Introdução de Saitama", 1, 4], ["Casa da Evolução", 5, 11], ["Paradisers", 12, 15], ["Associação de Heróis", 16, 20], ["Meteoro", 21, 22], ["Rei do Mar Profundo", 23, 29], ["Invasores Alienígenas", 30, 37], ["King", 38, 39], ["Caçador de Heróis", 40, 44], ["Torneio de Artes Marciais", 45, 77], ["Associação de Monstros", 78, 175], ["Neo Heroes", 176, 194]]
@@ -3081,6 +3085,7 @@ function renderCatalogMangaVolumes() {
     "fullmetal-alchemist.html": "Fullmetal Alchemist",
     "hajime-no-ippo.html": "Hajime no Ippo",
     "jujutsu-kaisen.html": "Jujutsu Kaisen",
+    "my-hero-academia.html": "My Hero Academia",
     "naruto.html": "Naruto",
     "naruto-shippuden.html": "Naruto Shippuden",
     "one-piece.html": "One Piece",
