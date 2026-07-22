@@ -1,0 +1,134 @@
+[
+  {
+    "number": 1,
+    "title": "Boredom",
+    "releaseDate": "2004-04-02",
+    "chapters": [
+      1,
+      7
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088736211/1200/9784088736211.jpg"
+  },
+  {
+    "number": 2,
+    "title": "Confluence Gōryū (合流)",
+    "releaseDate": "2004-07-02",
+    "chapters": [
+      8,
+      16
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088736310/1200/9784088736310.jpg"
+  },
+  {
+    "number": 3,
+    "title": "Hard Run Gekisō (激走)",
+    "releaseDate": "2004-09-03",
+    "chapters": [
+      17,
+      25
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088736525/1200/9784088736525.jpg"
+  },
+  {
+    "number": 4,
+    "title": "Love Koigokoro (恋心)",
+    "releaseDate": "2004-11-04",
+    "chapters": [
+      26,
+      34
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088736716/1200/9784088736716.jpg"
+  },
+  {
+    "number": 5,
+    "title": "Whiteout Hakushi (白紙)",
+    "releaseDate": "2005-02-04",
+    "chapters": [
+      35,
+      43
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088737744/1200/9784088737744.jpg"
+  },
+  {
+    "number": 6,
+    "title": "Give-and-Take Kōkan (交換)",
+    "releaseDate": "2005-04-04",
+    "chapters": [
+      44,
+      52
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088737959/1200/9784088737959.jpg"
+  },
+  {
+    "number": 7,
+    "title": "Zero Zero (零)",
+    "releaseDate": "2005-07-04",
+    "chapters": [
+      53,
+      61
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088738307/1200/9784088738307.jpg"
+  },
+  {
+    "number": 8,
+    "title": "Target Mato (的)",
+    "releaseDate": "2005-09-02",
+    "chapters": [
+      62,
+      70
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088738529/1200/9784088738529.jpg"
+  },
+  {
+    "number": 9,
+    "title": "Contact Sesshoku (接触)",
+    "releaseDate": "2005-12-02",
+    "chapters": [
+      71,
+      79
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088738871/1200/9784088738871.jpg"
+  },
+  {
+    "number": 10,
+    "title": "Deletion Sakujo (削除)",
+    "releaseDate": "2006-02-03",
+    "chapters": [
+      80,
+      88
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088740188/1200/9784088740188.jpg"
+  },
+  {
+    "number": 11,
+    "title": "Kindred Spirits Dōshin (同心)",
+    "releaseDate": "2006-05-02",
+    "chapters": [
+      89,
+      98
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088740416/1200/9784088740416.jpg"
+  },
+  {
+    "number": 12,
+    "title": "Finis Kan (完)",
+    "releaseDate": "2006-07-04",
+    "chapters": [
+      99,
+      108
+    ],
+    "pageCount": 200,
+    "coverSource": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088741314/1200/9784088741314.jpg"
+  }
+]

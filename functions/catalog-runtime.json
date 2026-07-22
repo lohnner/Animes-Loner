@@ -1026,15 +1026,6 @@
     "displayTitle": "Berserk / Volume 1"
   },
   {
-    "mangaId": "death-note",
-    "mangaTitle": "Death Note",
-    "volumeId": "death-note-1-2004",
-    "volumeNumber": 1,
-    "cover": "Mangás/Death%20Note/Death%20Note%20%231.png",
-    "pageUrl": "Mangás/Death%20Note/death-note-1-2004.html",
-    "displayTitle": "Death Note / Volume 1"
-  },
-  {
     "mangaId": "jujutsu-kaisen",
     "mangaTitle": "Jujutsu Kaisen",
     "volumeId": "jujutsu-kaisen-1-2018",
@@ -1339,6 +1330,114 @@
     "cover": "Mangás/Yu-Gi-Oh!/Yu-Gi-Oh!%20%233.png",
     "pageUrl": "Mangás/Yu-Gi-Oh!/yu-gi-oh-3-1997.html",
     "displayTitle": "Yu-Gi-Oh! / Volume 3"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-1-2004",
+    "volumeNumber": 1,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%231.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-1-2004.html",
+    "displayTitle": "Death Note / Volume 1"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-2-2004",
+    "volumeNumber": 2,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%232.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-2-2004.html",
+    "displayTitle": "Death Note / Volume 2"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-3-2004",
+    "volumeNumber": 3,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%233.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-3-2004.html",
+    "displayTitle": "Death Note / Volume 3"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-4-2004",
+    "volumeNumber": 4,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%234.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-4-2004.html",
+    "displayTitle": "Death Note / Volume 4"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-5-2005",
+    "volumeNumber": 5,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%235.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-5-2005.html",
+    "displayTitle": "Death Note / Volume 5"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-6-2005",
+    "volumeNumber": 6,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%236.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-6-2005.html",
+    "displayTitle": "Death Note / Volume 6"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-7-2005",
+    "volumeNumber": 7,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%237.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-7-2005.html",
+    "displayTitle": "Death Note / Volume 7"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-8-2005",
+    "volumeNumber": 8,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%238.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-8-2005.html",
+    "displayTitle": "Death Note / Volume 8"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-9-2005",
+    "volumeNumber": 9,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%239.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-9-2005.html",
+    "displayTitle": "Death Note / Volume 9"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-10-2006",
+    "volumeNumber": 10,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%2310.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-10-2006.html",
+    "displayTitle": "Death Note / Volume 10"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-11-2006",
+    "volumeNumber": 11,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%2311.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-11-2006.html",
+    "displayTitle": "Death Note / Volume 11"
+  },
+  {
+    "mangaId": "death-note",
+    "mangaTitle": "Death Note",
+    "volumeId": "death-note-12-2006",
+    "volumeNumber": 12,
+    "cover": "Mangás/Death%20Note/Death%20Note%20%2312.png",
+    "pageUrl": "Mangás/Death%20Note/death-note-12-2006.html",
+    "displayTitle": "Death Note / Volume 12"
   },
   {
     "mangaId": "attack-on-titan",
