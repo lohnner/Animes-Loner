@@ -382,6 +382,17 @@ img {
   font-size: 12px;
 }
 
+.profile-game-stats {
+  display: grid;
+  gap: 1px;
+  margin-top: 2px;
+}
+
+.profile-game-stats small {
+  display: block;
+  line-height: 1.35;
+}
+
 .profile-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;

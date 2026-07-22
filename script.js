@@ -1259,7 +1259,10 @@ function renderSignedIn(profile, options = {}) {
           <span style="width: ${progress.percent}%"></span>
         </div>
         <small>${progress.current} / ${progress.next} XP</small>
-        <small><strong id="sidebarLm">—</strong> LM · <strong id="sidebarCollection">—</strong> pontos da coleção</small>
+        <div class="profile-game-stats">
+          <small><strong id="sidebarLm">—</strong> LM</small>
+          <small><strong id="sidebarCollection">—</strong> pontos da coleção</small>
+        </div>
       </div>
     </div>
     <div class="profile-actions">
@@ -2900,6 +2903,11 @@ const mangaArcsByPage = {
     id: "deathNoteArcsDialog",
     title: "Death Note",
     arcs: [["Kira", 1, 22], ["Segundo Kira", 23, 33], ["Yotsuba", 34, 59], ["Sucessores de L", 60, 74], ["Mello", 75, 83], ["Confronto Final", 84, 108]]
+  },
+  "astra-lost-in-space.html": {
+    id: "astraLostInSpaceArcsDialog",
+    title: "Astra Lost in Space",
+    arcs: [["Acampamento em McPa", 1, 3], ["Planeta Vilavurs", 4, 11], ["Planeta Shummoor", 12, 18], ["Planeta Arispade", 19, 28], ["Planeta Icriss", 29, 37], ["Retorno à Terra", 38, 49]]
   },
   "jujutsu-kaisen.html": {
     id: "jujutsuKaisenArcsDialog",

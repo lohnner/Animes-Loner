@@ -1,0 +1,255 @@
+[
+  {
+    "number": 1,
+    "releaseDate": "2002-01-30",
+    "chapters": [
+      1,
+      6
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533636-L.jpg",
+    "japaneseIsbn": "9784091882714"
+  },
+  {
+    "number": 2,
+    "releaseDate": "2002-09-30",
+    "chapters": [
+      7,
+      11
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533766-L.jpg",
+    "japaneseIsbn": "9784091882721"
+  },
+  {
+    "number": 3,
+    "releaseDate": "2003-06-30",
+    "chapters": [
+      12,
+      17
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533773-L.jpg",
+    "japaneseIsbn": "9784091882738"
+  },
+  {
+    "number": 4,
+    "releaseDate": "2004-01-30",
+    "chapters": [
+      18,
+      23
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533780-L.jpg",
+    "japaneseIsbn": "9784091882745"
+  },
+  {
+    "number": 5,
+    "releaseDate": "2004-08-30",
+    "chapters": [
+      24,
+      30
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533797-L.jpg",
+    "japaneseIsbn": "9784091882752"
+  },
+  {
+    "number": 6,
+    "releaseDate": "2005-02-28",
+    "chapters": [
+      31,
+      36
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533803-L.jpg",
+    "japaneseIsbn": "9784091882769"
+  },
+  {
+    "number": 7,
+    "releaseDate": "2005-10-28",
+    "chapters": [
+      37,
+      43
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533810-L.jpg",
+    "japaneseIsbn": "9784091882776"
+  },
+  {
+    "number": 8,
+    "releaseDate": "2006-05-30",
+    "chapters": [
+      44,
+      49
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533827-L.jpg",
+    "japaneseIsbn": "9784091882783"
+  },
+  {
+    "number": 9,
+    "releaseDate": "2007-01-30",
+    "chapters": [
+      50,
+      55
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533834-L.jpg",
+    "japaneseIsbn": "9784091882790"
+  },
+  {
+    "number": 10,
+    "releaseDate": "2007-07-30",
+    "chapters": [
+      56,
+      61
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533841-L.jpg",
+    "japaneseIsbn": "9784091882806"
+  },
+  {
+    "number": 11,
+    "releaseDate": "2008-02-29",
+    "chapters": [
+      62,
+      67
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533858-L.jpg",
+    "japaneseIsbn": "9784091882837"
+  },
+  {
+    "number": 12,
+    "releaseDate": "2008-09-30",
+    "chapters": [
+      68,
+      73
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421533865-L.jpg",
+    "japaneseIsbn": "9784091882844"
+  },
+  {
+    "number": 13,
+    "releaseDate": "2009-05-29",
+    "chapters": [
+      74,
+      79
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421565354-L.jpg",
+    "japaneseIsbn": "9784091882851"
+  },
+  {
+    "number": 14,
+    "releaseDate": "2010-01-29",
+    "chapters": [
+      80,
+      85
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421565361-L.jpg",
+    "japaneseIsbn": "9784091882868"
+  },
+  {
+    "number": 15,
+    "releaseDate": "2010-11-30",
+    "chapters": [
+      86,
+      93
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421565378-L.jpg",
+    "japaneseIsbn": "9784091882875"
+  },
+  {
+    "number": 16,
+    "releaseDate": "2011-10-28",
+    "chapters": [
+      94,
+      101
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421577951-L.jpg",
+    "japaneseIsbn": "9784091882882"
+  },
+  {
+    "number": 17,
+    "releaseDate": "2012-09-28",
+    "chapters": [
+      102,
+      109
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421577968-L.jpg",
+    "japaneseIsbn": "9784091886057"
+  },
+  {
+    "number": 18,
+    "releaseDate": "2013-06-28",
+    "chapters": [
+      110,
+      117
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421577975-L.jpg",
+    "japaneseIsbn": "9784091886255"
+  },
+  {
+    "number": 19,
+    "releaseDate": "2014-06-30",
+    "chapters": [
+      118,
+      127
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421583914-L.jpg",
+    "japaneseIsbn": "9784091886569"
+  },
+  {
+    "number": 20,
+    "releaseDate": "2015-09-30",
+    "chapters": [
+      128,
+      137
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421587103-L.jpg",
+    "japaneseIsbn": "9784091886842"
+  },
+  {
+    "number": 21,
+    "releaseDate": "2016-09-30",
+    "chapters": [
+      138,
+      147
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781421594873-L.jpg",
+    "japaneseIsbn": "9784091886897"
+  },
+  {
+    "number": 22,
+    "releaseDate": "2017-06-30",
+    "chapters": [
+      148,
+      155
+    ],
+    "pageCount": 192,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781974700233-L.jpg",
+    "japaneseIsbn": "9784091886927"
+  },
+  {
+    "number": 23,
+    "releaseDate": "2018-11-12",
+    "chapters": [
+      156,
+      167
+    ],
+    "pageCount": 352,
+    "coverSource": "https://covers.openlibrary.org/b/isbn/9781974708802-L.jpg",
+    "japaneseIsbn": "9784091886934"
+  }
+]
