@@ -1,47 +1,20 @@
 rules_version = '2';
-service cloud.firestore { match /databases/{database}/documents {
-  function signedIn(){ return request.auth != null; }
-  function owner(uid){ return signedIn() && request.auth.uid == uid; }
-  function validCondition(value){ return value in ['lacrado','novo','seminovo','usado','desgastado','danificado']; }
-  function validShop(uid){ return request.resource.data.ownerUid == uid
-    && request.resource.data.shopName is string && request.resource.data.shopName.size() >= 3 && request.resource.data.shopName.size() <= 24
-    && request.resource.data.lm is int && request.resource.data.lm >= 0
-    && request.resource.data.inventoryCount is int && request.resource.data.inventoryCount >= 0
-    && request.resource.data.inventoryCapacity is int && request.resource.data.inventoryCapacity >= 15
-    && request.resource.data.marketListingCount is int && request.resource.data.marketListingCount >= 0
-    && request.resource.data.marketCapacity is int && request.resource.data.marketCapacity >= 5
-    && request.resource.data.collectionDistinctCount is int && request.resource.data.collectionDistinctCount >= 0
-    && (!('collectionPoints' in request.resource.data) || ((request.resource.data.collectionPoints is int || request.resource.data.collectionPoints is float) && request.resource.data.collectionPoints >= 0)); }
-  match /users/{uid} {
-    allow read: if true; allow create: if owner(uid) && request.resource.data.uid == uid;
-    allow update: if owner(uid) && request.resource.data.uid == uid && resource.data.uid == uid; allow delete: if false;
-    match /comics/{comicId} { allow read: if true; allow create,update: if owner(uid) && request.resource.data.uid == uid; allow delete: if owner(uid); }
-  }
-  match /comics/{comicId}/interactions/{uid} { allow read: if true; allow create,update: if owner(uid) && request.resource.data.uid == uid; allow delete: if owner(uid); }
-  match /shops/{uid} {
-    allow read: if true;
-    allow create: if owner(uid) && validShop(uid) && request.resource.data.lm == 200 && request.resource.data.inventoryCapacity == 15 && request.resource.data.marketCapacity == 5;
-    allow update: if signedIn() && validShop(uid); allow delete: if false;
-    match /inventory/{id} { allow read,write: if owner(uid); }
-    match /boxes/{id} { allow read,write: if owner(uid); }
-    match /collectionVolumes/{id} {
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function owner(uid) { return signedIn() && request.auth.uid == uid; }
+
+    match /users/{uid} {
       allow read: if true;
-      allow create: if owner(uid)
-        && request.resource.data.quantity == 1
-        && request.resource.data.condition in ['lacrado', 'novo', 'seminovo', 'usado', 'desgastado', 'danificado'];
-      // Permite somente reduzir duplicatas antigas; novas entradas sempre nascem com uma cópia.
+      allow create: if owner(uid) && request.resource.data.uid == uid;
       allow update: if owner(uid)
-        && resource.data.quantity > 1
-        && request.resource.data.quantity == resource.data.quantity - 1
-        && request.resource.data.collectionId == resource.data.collectionId
-        && request.resource.data.volumeId == resource.data.volumeId
-        && request.resource.data.condition == resource.data.condition;
-      allow delete: if owner(uid);
+        && request.resource.data.uid == uid
+        && resource.data.uid == uid
+        && request.resource.data.watchedEpisodes is int
+        && request.resource.data.watchedEpisodes >= 0
+        && request.resource.data.watchedEpisodes <= 220
+        && request.resource.data.xp == request.resource.data.watchedEpisodes * 22;
+      allow delete: if false;
     }
   }
-  match /marketListings/{id} {
-    allow read: if true;
-    allow create: if signedIn() && request.resource.data.sellerUid == request.auth.uid && validCondition(request.resource.data.condition) && request.resource.data.price is int && request.resource.data.price > 0 && request.resource.data.price <= 1000000000;
-    allow delete: if signedIn(); allow update: if false;
-  }
-} }
+}

@@ -1,133 +1,58 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Loner Mangá - Enciclopédia de mangás</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <meta name="theme-color" content="#0a0d14" />
-    <meta name="description" content="A central de consulta para universos, edições, personagens, autores e curiosidades do mundo dos mangás." />
-    <link rel="canonical" href="https://lohnner.github.io/Loner-Manga/index.html" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Loner Mangá" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:title" content="Loner Mangá - Enciclopédia de mangás" />
-    <meta property="og:description" content="A central de consulta para universos, edições, personagens, autores e curiosidades do mundo dos mangás." />
-    <meta property="og:image" content="https://lohnner.github.io/Loner-Manga/lonermangalogo-v2.png" />
-    <meta property="og:url" content="https://lohnner.github.io/Loner-Manga/index.html" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" data-loner-cache-bust />
-    <script src="boot.js" data-loner-app="script.js"></script>
-  </head>
-  <body>
-    <div class="site-shell">
-      <aside class="sidebar" aria-label="Barra lateral">
-        <a class="brand sidebar-fallback-brand" href="index.html" aria-label="Loner Mangá p&aacute;gina inicial">
-          <span class="brand-mark">LM</span>
-          <span>
-            <strong>Loner Mangá</strong>
-            <small>Arquivo de mangás</small>
-          </span>
-        </a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animes Loner — Seu acervo de animes</title>
+  <meta name="description" content="Acompanhe seus episódios, ganhe XP e construa sua jornada no mundo dos animes.">
+  <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">AL</span><span><strong>Animes Loner</strong><small>Acervo de animes</small></span></a>
+    <nav><a href="#acervo">Acervo</a><a href="#episodios">Episódios</a><a href="ranking.html">Ranking</a></nav>
+    <div id="authArea"><button class="button ghost" data-open-auth>Entrar</button></div>
+  </header>
 
-        <nav class="wiki-nav sidebar-fallback-nav" aria-label="Navega&ccedil;&atilde;o principal">
-          <a href="index.html" class="nav-link" data-section="inicio">HOME</a>
-          <a href="Universos/universos.html" class="nav-link" data-section="universos">Mangás</a>
-          <a href="pesquisar.html" class="nav-link" data-section="pesquisar">Pesquisar</a>
-          <a href="ranking.html" class="nav-link" data-section="ranking">Ranking de Usu&aacute;rios</a>
-        </nav>
-      </aside>
+  <main>
+    <section class="hero">
+      <div class="hero-copy"><span class="eyebrow">A SUA JORNADA COMEÇA AQUI</span><h1>Animes para assistir.<br><em>Progresso para conquistar.</em></h1><p>Marque cada episódio assistido, ganhe 22 XP e acompanhe sua evolução no acervo.</p><a class="button primary" href="#acervo">Explorar acervo</a></div>
+      <div class="hero-orb" aria-hidden="true"><span>忍</span></div>
+    </section>
 
-      <div class="content-shell">
-        <header class="topbar" aria-hidden="true"></header>
+    <section class="section" id="acervo">
+      <div class="section-heading"><div><span class="eyebrow">EM DESTAQUE</span><h2>Nosso acervo</h2></div><span class="counter">1 anime</span></div>
+      <article class="anime-card">
+        <img src="naruto-500x750.jpg" width="500" height="750" alt="Visual oficial do anime Naruto">
+        <div class="anime-info"><span class="tag">CLÁSSICO</span><h2>Naruto</h2><p>Naruto Uzumaki sonha em se tornar Hokage e conquistar o respeito de sua vila. Acompanhe a série original completa, do primeiro treinamento à despedida rumo a uma nova jornada.</p><dl><div><dt>Episódios</dt><dd>220</dd></div><div><dt>XP por episódio</dt><dd>22 XP</dd></div><div><dt>Ano</dt><dd>2002</dd></div></dl><a class="button primary" href="#episodios">Ver episódios</a></div>
+      </article>
+    </section>
 
-        <main class="wiki-page universe-layout" id="inicio">
-          <article class="article">
-            <div class="article-grid">
-              <section class="wiki-section featured" aria-labelledby="featuredTitle">
-                <div class="section-title">
-                  <h2 id="featuredTitle">Artigo em destaque</h2>
-                  <span>Arquivo principal</span>
-                </div>
-                <h3>Naruto #1</h3>
-                <p>
-                  Publicado pela Shueisha em 2000, este volume abre a história do ninja criado por Masashi Kishimoto.
-                  Na Loner Mangá, ele inaugura a área de capas e serve como ponto de partida para organizar personagens,
-                  vilas, volumes relacionados e cronologias.
-                </p>
-                <a class="text-link" href="Mang%C3%A1s/Naruto/naruto-1-2000.html">Abrir Mangá</a>
-              </section>
-
-              <section class="wiki-section recent-showcase" aria-labelledby="newsTitle">
-                <div class="section-title">
-                  <h2 id="newsTitle">Mangá Recente</h2>
-                  <span>Últimos Mangá Adicionadas</span>
-                </div>
-                <div class="recent-hq-list" id="homeRecentHqs" aria-label="Mangá recente"></div>
-              </section>
-
-              <section class="wiki-section" aria-labelledby="portalTitle">
-                <div class="section-title">
-                  <h2 id="portalTitle">Portais</h2>
-                  <span>Categorias</span>
-                </div>
-                <div class="portal-list">
-                  <a href="Universos/universos.html" data-section="universos">Mangás</a>
-                  <a href="pesquisar.html" data-section="pesquisar">Pesquisar</a>
-                  <a href="ranking.html" data-section="ranking">Ranking de Usuários</a>
-                  <a href="minha-loja.html" data-section="loja">Minha Loja</a>
-                </div>
-              </section>
-
-              <section class="wiki-section" aria-labelledby="curiosityTitle">
-                <div class="section-title">
-                  <h2 id="curiosityTitle">Você sabia?</h2>
-                  <span>Notas rápidas</span>
-                </div>
-                <p>
-                  O capítulo piloto de Naruto, publicado em 1997 na revista Akamaru Jump, era bem diferente da série final:
-                  nele, Naruto era literalmente a Raposa de Nove Caudas transformada em garoto.
-                </p>
-              </section>
-
-              <section class="wiki-section blog-info-card" aria-labelledby="blogInfoTitle">
-                <div class="section-title">
-                  <h2 id="blogInfoTitle">Informações do Blog</h2>
-                  <span>Registro</span>
-                </div>
-                <dl class="blog-info-list">
-                  <div>
-                    <dt>Nome</dt>
-                    <dd>Loner Mangá</dd>
-                  </div>
-                  <div>
-                    <dt>Criado em</dt>
-                    <dd>09/07/2026</dd>
-                  </div>
-                  <div>
-                    <dt>Versão</dt>
-                    <dd>0.1.0</dd>
-                  </div>
-                </dl>
-              </section>
-            </div>
-
-          </article>
-
-        </main>
-
-        <footer class="site-footer">
-          <p>Loner Mangá é um projeto local de catalogação de mangás.</p>
-        </footer>
+    <section class="section episodes-section" id="episodios">
+      <div class="section-heading"><div><span class="eyebrow">NARUTO • 220 EPISÓDIOS</span><h2>Seu progresso</h2></div><div class="xp-pill"><strong id="xpTotal">0 XP</strong><small>22 XP por episódio</small></div></div>
+      <div class="progress-card">
+        <div class="progress-summary"><div class="episode-number"><strong id="watchedCount">0</strong><span>/ 220 assistidos</span></div><div class="progress-track"><span id="progressBar"></span></div></div>
+        <div class="progress-actions"><button class="plus-button" id="addEpisode" type="button" aria-label="Adicionar um episódio assistido">+</button><label for="episodeInput">Ou digite até qual episódio assistiu</label><div class="episode-input"><input id="episodeInput" type="number" min="0" max="220" inputmode="numeric" placeholder="Ex.: 45"><kbd>Enter</kbd></div></div>
+        <p class="status" id="progressStatus">Entre na sua conta para salvar seu progresso.</p>
       </div>
+      <div class="episode-toolbar"><h3>Todos os episódios</h3><input id="episodeSearch" type="search" placeholder="Buscar episódio" aria-label="Buscar episódio"></div>
+      <div class="episode-grid" id="episodeGrid"></div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">AL</span><strong>Animes Loner</strong></a><p>Seu acervo, seu progresso, sua jornada.</p></footer>
+
+  <div class="modal" id="authModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="modal-close" type="button" data-close-auth aria-label="Fechar">×</button><h2 id="authTitle">Bem-vindo</h2><p>Entre para salvar episódios e ganhar XP.</p>
+      <form id="loginForm"><label>E-mail<input name="email" type="email" required autocomplete="email"></label><label>Senha<input name="password" type="password" minlength="6" required autocomplete="current-password"></label><button class="button primary" type="submit">Entrar</button></form>
+      <form id="registerForm" hidden><label>E-mail<input name="email" type="email" required autocomplete="email"></label><label>Senha<input name="password" type="password" minlength="6" required autocomplete="new-password"></label><label>Confirmar senha<input name="confirm" type="password" minlength="6" required autocomplete="new-password"></label><button class="button primary" type="submit">Criar conta</button></form>
+      <button class="button google" id="googleLogin" type="button">Continuar com Google</button><button class="text-button" id="toggleAuth" type="button">Ainda não tenho conta</button><p class="status" id="authStatus"></p>
     </div>
-  </body>
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
 </html>
