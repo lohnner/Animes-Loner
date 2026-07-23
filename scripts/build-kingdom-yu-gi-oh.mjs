@@ -29,7 +29,7 @@ for (const item of series) {
   const output = new URL(`Mangás/${item.folder}/`, root);
   await mkdir(output, { recursive: true });
   const encodedFolder = encodeURIComponent(item.folder).replace(/%2F/g, "/");
-  const base = `https://lohnner.github.io/Loner-Manga/Mang%C3%A1s/${encodedFolder}`;
+  const base = `https://lohnner.github.io/Animes-Loner/Mang%C3%A1s/${encodedFolder}`;
   const encodedTitle = encodeURIComponent(item.title);
   const cards = volumes.map(v => `<a class="volume-card" href="${item.slug}-${v.number}-${v.releaseDate.slice(0, 4)}.html"><img src="${encodedTitle}%20%23${v.number}.png" alt="Capa do volume ${v.number} de ${item.title}" loading="lazy"/><span>Volume ${v.number}</span></a>`).join("");
   const lastChapter = volumes.at(-1).chapters[1];

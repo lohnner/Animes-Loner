@@ -3,7 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 const root = new URL("../", import.meta.url);
 const output = new URL("../Mangás/One Piece/", import.meta.url);
 const volumes = JSON.parse(await readFile(new URL("one-piece-volumes.json", import.meta.url), "utf8"));
-const baseUrl = "https://lohnner.github.io/Loner-Manga/Mang%C3%A1s/One%20Piece";
+const baseUrl = "https://lohnner.github.io/Animes-Loner/Mang%C3%A1s/One%20Piece";
 
 const formatDate = (isoDate) => {
   const [year, month, day] = isoDate.split("-").map(Number);

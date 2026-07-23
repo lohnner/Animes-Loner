@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 const output = new URL("../Mangás/Captain Tsubasa/", import.meta.url);
 const volumes = JSON.parse(await readFile(new URL("captain-tsubasa-volumes.json", import.meta.url), "utf8"));
-const baseUrl = "https://lohnner.github.io/Loner-Manga/Mang%C3%A1s/Captain%20Tsubasa";
+const baseUrl = "https://lohnner.github.io/Animes-Loner/Mang%C3%A1s/Captain%20Tsubasa";
 await mkdir(output, { recursive: true });
 
 const formatDate = (isoDate) => {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lohnner.github.io/Loner-Manga/sitemap.xml
+Sitemap: https://lohnner.github.io/Animes-Loner/sitemap.xml

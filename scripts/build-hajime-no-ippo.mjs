@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 const output = new URL("../Mangás/Hajime no Ippo/", import.meta.url);
 const volumes = JSON.parse(await readFile(new URL("hajime-no-ippo-volumes.json", import.meta.url), "utf8"));
-const baseUrl = "https://lohnner.github.io/Loner-Manga/Mang%C3%A1s/Hajime%20no%20Ippo";
+const baseUrl = "https://lohnner.github.io/Animes-Loner/Mang%C3%A1s/Hajime%20no%20Ippo";
 await mkdir(output, { recursive: true });
 
 const formatDate = (isoDate) => {

@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 const output = new URL("../Mangás/Dogsred/", import.meta.url);
 const volumes = JSON.parse(await readFile(new URL("dogsred-volumes.json", import.meta.url), "utf8"));
-const base = "https://lohnner.github.io/Loner-Manga/Mang%C3%A1s/Dogsred";
+const base = "https://lohnner.github.io/Animes-Loner/Mang%C3%A1s/Dogsred";
 await mkdir(output, { recursive: true });
 
 const date = iso => new Intl.DateTimeFormat("pt-BR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${iso}T00:00:00Z`));
