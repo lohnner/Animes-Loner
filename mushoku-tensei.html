@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mushoku Tensei — Animes Loner</title>
+  <title>Mushoku Tensei — Loner</title>
   <meta name="description" content="Acompanhe os 11 episódios de Mushoku Tensei e ganhe 22 XP por episódio.">
   <link rel="icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +13,12 @@
   <link rel="stylesheet" href="naruto.css">
 </head>
 <body data-anime="mushokuTensei" data-total-episodes="11">
-  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">AL</span><span><strong>Animes Loner</strong><small>Acervo de animes</small></span></a><nav><a href="index.html">Home</a><a href="animes.html">Animes</a><a href="ranking.html">Ranking</a></nav><div id="authArea"><button class="button ghost" data-open-auth>Entrar</button></div></header>
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">L</span><span><strong>Loner</strong><small>Acervo de desenhos</small></span></a><nav><a href="index.html">Home</a><a href="animes.html">Desenhos</a><a href="ranking.html">Ranking</a></nav><div id="authArea"><button class="button ghost" data-open-auth>Entrar</button></div></header>
   <main>
     <section class="anime-detail-hero"><div class="anime-detail-inner"><img src="mushoku-tensei-500x750.jpg" width="500" height="750" alt="Capa de Mushoku Tensei"><div><a class="back-link" href="animes.html">← Voltar para os animes</a><span class="eyebrow">ISEKAI • 2021</span><h1>Mushoku Tensei</h1><p>Após morrer em um acidente, um homem reencarna como Rudeus Greyrat em um mundo de magia. Conservando as memórias da vida anterior, ele decide aproveitar sua nova oportunidade e viver sem arrependimentos.</p><div class="detail-meta"><span><strong>11</strong>Episódios</span><span><strong>22 XP</strong>Por episódio</span><span><strong>Completo</strong>Status</span></div><a class="button primary" href="#progresso">Continuar assistindo</a></div></div></section>
     <section class="section episodes-section" id="progresso"><div class="section-heading"><div><span class="eyebrow">MUSHOKU TENSEI • 11 EPISÓDIOS</span><h2>Seu progresso</h2></div><div class="xp-pill"><strong id="xpTotal">0 XP</strong><small>22 XP por episódio</small></div></div><div class="progress-card"><div class="progress-summary"><div class="episode-number"><strong id="watchedCount">0</strong><span>/ 11 assistidos</span></div><div class="progress-track"><span id="progressBar"></span></div></div><div class="progress-actions"><button class="plus-button" id="addEpisode" type="button" aria-label="Adicionar um episódio assistido">+</button><label for="episodeInput">Ou digite até qual episódio assistiu</label><div class="episode-input"><input id="episodeInput" type="number" min="0" max="11" inputmode="numeric" placeholder="Ex.: 5"><kbd>Enter</kbd></div></div><p class="status" id="progressStatus">Entre na sua conta para salvar seu progresso.</p></div></section>
   </main>
-  <footer><a class="brand" href="index.html"><span class="brand-mark">AL</span><strong>Animes Loner</strong></a><p>Seu acervo, seu progresso, sua jornada.</p></footer>
+  <footer><a class="brand" href="index.html"><span class="brand-mark">L</span><strong>Loner</strong></a><p>Seu acervo, seu progresso, sua jornada.</p></footer>
   <div class="modal" id="authModal" hidden><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="modal-close" type="button" data-close-auth aria-label="Fechar">×</button><h2 id="authTitle">Bem-vindo</h2><p>Entre para salvar episódios e ganhar XP.</p><form id="loginForm"><label>E-mail<input name="email" type="email" required></label><label>Senha<input name="password" type="password" minlength="6" required></label><button class="button primary" type="submit">Entrar</button></form><form id="registerForm" hidden><label>E-mail<input name="email" type="email" required></label><label>Senha<input name="password" type="password" minlength="6" required></label><label>Confirmar senha<input name="confirm" type="password" minlength="6" required></label><button class="button primary" type="submit">Criar conta</button></form><button class="button google" id="googleLogin" type="button">Continuar com Google</button><button class="text-button" id="toggleAuth" type="button">Ainda não tenho conta</button><p class="status" id="authStatus"></p></div></div>
   <script type="module" src="script.js"></script>
 </body>

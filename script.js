@@ -169,7 +169,7 @@ function renderGlobalNavigation() {
   const nav = document.querySelector('.topbar nav');
   if (!nav) return;
   const page = window.location.pathname.split('/').pop() || 'index.html';
-  nav.innerHTML = `<a class="${page === 'index.html' ? 'active' : ''}" href="index.html">HOME</a><a class="${['animes.html','naruto.html','the-villager-of-level-999.html',...MUSHOKU_SEQUENCE.map(anime=>anime.href),...MY_HERO_SEQUENCE.map(anime=>anime.href),...KEKKON_YUBIWA_SEQUENCE.map(anime=>anime.href),...DIGIMON_SEQUENCE.map(anime=>anime.href),...X_MEN_EVOLUTION_SEQUENCE.map(anime=>anime.href)].includes(page) ? 'active' : ''}" href="animes.html">ANIMES</a><span class="nav-dropdown"><a class="${['ranking.html','ranking-animes.html'].includes(page) ? 'active' : ''}" href="ranking.html" aria-haspopup="true">RANKING</a><span class="nav-dropdown-menu"><a href="ranking-animes.html">Ranking de Animes</a><a href="ranking.html">Ranking de Usuários</a></span></span>`;
+  nav.innerHTML = `<a class="${page === 'index.html' ? 'active' : ''}" href="index.html">HOME</a><a class="${['animes.html','naruto.html','the-villager-of-level-999.html',...MUSHOKU_SEQUENCE.map(anime=>anime.href),...MY_HERO_SEQUENCE.map(anime=>anime.href),...KEKKON_YUBIWA_SEQUENCE.map(anime=>anime.href),...DIGIMON_SEQUENCE.map(anime=>anime.href),...X_MEN_EVOLUTION_SEQUENCE.map(anime=>anime.href)].includes(page) ? 'active' : ''}" href="animes.html">DESENHOS</a><span class="nav-dropdown"><a class="${['ranking.html','ranking-animes.html'].includes(page) ? 'active' : ''}" href="ranking.html" aria-haspopup="true">RANKING</a><span class="nav-dropdown-menu"><a href="ranking-animes.html">Ranking de Desenhos</a><a href="ranking.html">Ranking de Usuários</a></span></span>`;
 }
 
 renderGlobalNavigation();
@@ -249,7 +249,7 @@ async function saveProgress(target) {
   await services.setDoc(ref, { animeProgress, xp, level: levelFromXp(xp), animeDataVersion: DATA_VERSION, updatedAt: services.serverTimestamp() }, { merge: true });
   currentProfile = { ...currentProfile, animeProgress, xp, level: levelFromXp(xp) };
   renderProgress(); renderProfile(); renderAuth();
-  setStatus('#progressStatus', `Progresso salvo: ${watched} episódios e ${pageXp.toLocaleString('pt-BR')} XP neste anime.`, 'ok');
+  setStatus('#progressStatus', `Progresso salvo: ${watched} episódios e ${pageXp.toLocaleString('pt-BR')} XP neste desenho.`, 'ok');
 }
 
 function renderProgress() {
@@ -333,7 +333,7 @@ function openWatchOnline() {
   const modal = document.createElement('div');
   modal.className = 'modal watch-modal';
   modal.id = 'watchModal';
-  modal.innerHTML = `<section class="modal-card watch-modal-card" role="dialog" aria-modal="true" aria-labelledby="watchTitle"><button class="modal-close" type="button" data-close-watch aria-label="Fechar">×</button><span class="eyebrow">ONDE ASSISTIR ONLINE</span><h2 id="watchTitle">${escapeHtml(option.title)}</h2><p>Escolha a plataforma oficial para começar a assistir.</p><a class="watch-platform" href="${escapeHtml(option.url)}" target="_blank" rel="noopener noreferrer"><span class="watch-platform-icon">C</span><span><strong>${escapeHtml(option.platform)}</strong><small>Abre em uma nova janela e mantém o Animes Loner aberto</small></span><b>Assistir agora ↗</b></a></section>`;
+  modal.innerHTML = `<section class="modal-card watch-modal-card" role="dialog" aria-modal="true" aria-labelledby="watchTitle"><button class="modal-close" type="button" data-close-watch aria-label="Fechar">×</button><span class="eyebrow">ONDE ASSISTIR ONLINE</span><h2 id="watchTitle">${escapeHtml(option.title)}</h2><p>Escolha a plataforma oficial para começar a assistir.</p><a class="watch-platform" href="${escapeHtml(option.url)}" target="_blank" rel="noopener noreferrer"><span class="watch-platform-icon">C</span><span><strong>${escapeHtml(option.platform)}</strong><small>Abre em uma nova janela e mantém o Loner aberto</small></span><b>Assistir agora ↗</b></a></section>`;
   document.body.append(modal);
 }
 
@@ -371,7 +371,7 @@ function renderProfile() {
   if (!currentUser) { content.innerHTML = '<p>Entre na sua conta para ver seu perfil.</p><a class="button primary" href="index.html">Entrar</a>'; return; }
   const watched = totalWatched(currentProfile), xp = watched * XP_PER_EPISODE;
   const progress = levelProgress(xp);
-  content.innerHTML = `<div class="profile-identity"><img src="${escapeHtml(currentProfile.avatarPath || DEFAULT_AVATAR)}" width="110" height="110" alt="Avatar de ${escapeHtml(currentProfile.nick)}"><div><h2>${escapeHtml(currentProfile.nick)}</h2><p>${escapeHtml(currentProfile.email)}</p><span class="profile-level">Level ${progress.level}</span></div></div><section class="profile-xp"><div><strong>Progresso para o level ${progress.level + 1}</strong><span>${progress.current.toLocaleString('pt-BR')} / ${progress.needed.toLocaleString('pt-BR')} XP</span></div><span class="profile-xp-track"><i style="width:${progress.percent}%"></i></span><small>Faltam ${(progress.needed - progress.current).toLocaleString('pt-BR')} XP para avançar.</small></section><div class="profile-stats"><div><small>Episódios assistidos</small><strong>${watched}</strong></div><div><small>XP total</small><strong>${xp.toLocaleString('pt-BR')}</strong></div><div><small>Level</small><strong>${progress.level}</strong></div></div><section class="profile-animes"><h3>Animes adicionados</h3>${profileAnimeCards(currentProfile)}</section><button class="button ghost profile-logout" id="logout" type="button">Sair da conta</button>`;
+  content.innerHTML = `<div class="profile-identity"><img src="${escapeHtml(currentProfile.avatarPath || DEFAULT_AVATAR)}" width="110" height="110" alt="Avatar de ${escapeHtml(currentProfile.nick)}"><div><h2>${escapeHtml(currentProfile.nick)}</h2><p>${escapeHtml(currentProfile.email)}</p><span class="profile-level">Level ${progress.level}</span></div></div><section class="profile-xp"><div><strong>Progresso para o level ${progress.level + 1}</strong><span>${progress.current.toLocaleString('pt-BR')} / ${progress.needed.toLocaleString('pt-BR')} XP</span></div><span class="profile-xp-track"><i style="width:${progress.percent}%"></i></span><small>Faltam ${(progress.needed - progress.current).toLocaleString('pt-BR')} XP para avançar.</small></section><div class="profile-stats"><div><small>Episódios assistidos</small><strong>${watched}</strong></div><div><small>XP total</small><strong>${xp.toLocaleString('pt-BR')}</strong></div><div><small>Level</small><strong>${progress.level}</strong></div></div><section class="profile-animes"><h3>Desenhos adicionados</h3>${profileAnimeCards(currentProfile)}</section><button class="button ghost profile-logout" id="logout" type="button">Sair da conta</button>`;
 }
 
 function profileAnimeCards(profile = {}) {
@@ -384,7 +384,7 @@ function profileAnimeCards(profile = {}) {
     {title:'Digimon Adventure',href:'digimon-adventure.html',cover:'digimon-adventure-500x750.jpg',watched:digimonWatched(profile),total:119},
     {title:'X-Men Evolution',href:'x-men-evolution.html',cover:'x-men-evolution-500x750.jpg',watched:xMenEvolutionWatched(profile),total:52}
   ].filter(anime => anime.watched > 0);
-  if (!animes.length) return '<p class="empty-animes">Este usuário ainda não adicionou nenhum anime.</p>';
+  if (!animes.length) return '<p class="empty-animes">Este usuário ainda não adicionou nenhum desenho.</p>';
   return `<div class="profile-anime-grid">${animes.map(anime=>`<a href="${anime.href}" class="profile-anime-card"><img src="${anime.cover}" width="90" height="135" alt="${escapeHtml(anime.title)}"><div><strong>${escapeHtml(anime.title)}</strong><span>Episódio ${anime.watched} de ${anime.total}</span><span class="mini-progress"><i style="width:${anime.watched/anime.total*100}%"></i></span><small>${(anime.watched*XP_PER_EPISODE).toLocaleString('pt-BR')} XP</small></div></a>`).join('')}</div>`;
 }
 
@@ -394,7 +394,7 @@ function openPublicProfile(uid) {
   const progress = levelProgress(Number(profile.xp||0));
   const watched = totalWatched(profile);
   const modal = document.createElement('div'); modal.className='modal public-profile-modal'; modal.id='publicProfileModal';
-  modal.innerHTML = `<section class="modal-card public-profile-card" role="dialog" aria-modal="true" aria-labelledby="publicProfileTitle"><button class="modal-close" type="button" data-close-public-profile aria-label="Fechar">×</button><div class="profile-identity"><img src="${escapeHtml(profile.avatarPath||DEFAULT_AVATAR)}" width="110" height="110" alt="Avatar de ${escapeHtml(profile.nick||'Ninja Loner')}"><div><span class="eyebrow">PERFIL DO USUÁRIO</span><h2 id="publicProfileTitle">${escapeHtml(profile.nick||'Ninja Loner')}</h2><span class="profile-level">Level ${progress.level}</span></div></div><section class="profile-xp"><div><strong>Progresso de level</strong><span>${progress.current.toLocaleString('pt-BR')} / ${progress.needed.toLocaleString('pt-BR')} XP</span></div><span class="profile-xp-track"><i style="width:${progress.percent}%"></i></span></section><div class="profile-stats"><div><small>Episódios</small><strong>${watched}</strong></div><div><small>XP total</small><strong>${Number(profile.xp||0).toLocaleString('pt-BR')}</strong></div><div><small>Level</small><strong>${progress.level}</strong></div></div><section class="profile-animes"><h3>Animes adicionados</h3>${profileAnimeCards(profile)}</section></section>`;
+  modal.innerHTML = `<section class="modal-card public-profile-card" role="dialog" aria-modal="true" aria-labelledby="publicProfileTitle"><button class="modal-close" type="button" data-close-public-profile aria-label="Fechar">×</button><div class="profile-identity"><img src="${escapeHtml(profile.avatarPath||DEFAULT_AVATAR)}" width="110" height="110" alt="Avatar de ${escapeHtml(profile.nick||'Ninja Loner')}"><div><span class="eyebrow">PERFIL DO USUÁRIO</span><h2 id="publicProfileTitle">${escapeHtml(profile.nick||'Ninja Loner')}</h2><span class="profile-level">Level ${progress.level}</span></div></div><section class="profile-xp"><div><strong>Progresso de level</strong><span>${progress.current.toLocaleString('pt-BR')} / ${progress.needed.toLocaleString('pt-BR')} XP</span></div><span class="profile-xp-track"><i style="width:${progress.percent}%"></i></span></section><div class="profile-stats"><div><small>Episódios</small><strong>${watched}</strong></div><div><small>XP total</small><strong>${Number(profile.xp||0).toLocaleString('pt-BR')}</strong></div><div><small>Level</small><strong>${progress.level}</strong></div></div><section class="profile-animes"><h3>Desenhos adicionados</h3>${profileAnimeCards(profile)}</section></section>`;
   document.body.append(modal);
 }
 
