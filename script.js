@@ -73,7 +73,9 @@ const PROGRESS_FIELDS = {
   demonSlayerSwordsmith: 'demonSlayerSwordsmithWatchedEpisodes', demonSlayerHashira: 'demonSlayerHashiraWatchedEpisodes',
   demonSlayerInfinityCastle1: 'demonSlayerInfinityCastle1WatchedEpisodes',
   elusiveSamurai: 'elusiveSamuraiWatchedEpisodes', elusiveSamuraiSeason2: 'elusiveSamuraiSeason2WatchedEpisodes',
-  dragonBall: 'dragonBallWatchedEpisodes'
+  dragonBall: 'dragonBallWatchedEpisodes', dragonBallZ: 'dragonBallZWatchedEpisodes',
+  dragonBallGT: 'dragonBallGTWatchedEpisodes', dragonBallKai: 'dragonBallKaiWatchedEpisodes',
+  dragonBallSuper: 'dragonBallSuperWatchedEpisodes', dragonBallDaima: 'dragonBallDaimaWatchedEpisodes'
 };
 const progressField = PROGRESS_FIELDS[PAGE_ANIME] || 'watchedEpisodes';
 const XP_PER_EPISODE = 22;
@@ -82,6 +84,11 @@ const DEFAULT_AVATAR = sitePath('Avatar/naruto-default-500x500.jpg');
 const WATCH_OPTIONS = {
   naruto: { title: 'Naruto', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-pt/series/GY9PJ5KWR/naruto' },
   dragonBall: { title: 'Dragon Ball', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G8DHV7W21/dragon-ball' },
+  dragonBallZ: { title: 'Dragon Ball Z', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GRJQ8Z1Q6/dragon-ball-z' },
+  dragonBallGT: { title: 'Dragon Ball GT', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G4PH0WEKE/dragon-ball-gt' },
+  dragonBallKai: { title: 'Dragon Ball Z Kai', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GMEHMEWP0/dragon-ball-z-kai' },
+  dragonBallSuper: { title: 'Dragon Ball Super', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GR19V7816/dragon-ball-super' },
+  dragonBallDaima: { title: 'Dragon Ball Daima', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GG5H5XQ35/dragon-ball-daima' },
   myHeroAcademia: { title: 'My Hero Academia', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G6NQ5DWZ6/my-hero-academia' },
   myHeroSeason2: { title: 'My Hero Academia: 2ª Temporada', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G6NQ5DWZ6/my-hero-academia' },
   myHeroSeason3: { title: 'My Hero Academia: 3ª Temporada', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G6NQ5DWZ6/my-hero-academia' },
@@ -171,6 +178,14 @@ const X_MEN_EVOLUTION_SEQUENCE = [
   { key:'xMenEvolutionSeason3', title:'X-Men Evolution: 3ª Temporada', subtitle:'3ª temporada', href:'x-men-evolution-season-3.html', cover:'x-men-evolution-season-3-500x750.jpg', episodes:13, year:2002, status:'Completo', description:'Com a existência dos mutantes revelada ao mundo, os X-Men enfrentam preconceito, perseguição e o despertar de Apocalipse.' },
   { key:'xMenEvolutionSeason4', title:'X-Men Evolution: 4ª Temporada', subtitle:'4ª temporada', href:'x-men-evolution-season-4.html', cover:'x-men-evolution-season-4-500x750.jpg', episodes:9, year:2003, status:'Completo', description:'Na temporada final, os X-Men precisam reunir aliados e impedir que Apocalipse transforme o destino da humanidade.' }
 ];
+const DRAGON_BALL_SEQUENCE = [
+  { key:'dragonBall', title:'Dragon Ball', subtitle:'Série original', href:'dragon-ball.html', cover:'dragon-ball-1000x1500.jpg', episodes:153, year:1986, status:'Completo', description:'Son Goku conhece Bulma e parte em busca das sete Esferas do Dragão, fazendo amigos e se tornando um grande lutador.' },
+  { key:'dragonBallZ', title:'Dragon Ball Z', subtitle:'Continuação principal', href:'dragon-ball-z.html', cover:'dragon-ball-z-hd.jpg', episodes:291, year:1989, status:'Completo', description:'Goku descobre sua origem Saiyajin e protege a Terra de ameaças cada vez mais poderosas ao lado dos Guerreiros Z.' },
+  { key:'dragonBallGT', title:'Dragon Ball GT', subtitle:'Continuidade alternativa', href:'dragon-ball-gt.html', cover:'dragon-ball-gt-hd.jpg', episodes:64, year:1996, status:'Completo', description:'Transformado novamente em criança, Goku viaja pelo universo com Pan e Trunks em busca das Esferas do Dragão de Estrelas Negras.' },
+  { key:'dragonBallKai', title:'Dragon Ball Z Kai', subtitle:'Versão remasterizada e condensada de Z', href:'dragon-ball-kai.html', cover:'dragon-ball-kai-hd.jpg', episodes:159, year:2009, status:'Completo', description:'A história de Dragon Ball Z retorna remasterizada, com ritmo mais direto e uma adaptação mais próxima do mangá.' },
+  { key:'dragonBallSuper', title:'Dragon Ball Super', subtitle:'Continuação principal após Z', href:'dragon-ball-super.html', cover:'dragon-ball-super-hd.jpg', episodes:131, year:2015, status:'Completo', description:'Goku alcança o poder dos deuses e enfrenta novos rivais em batalhas que atravessam universos inteiros.' },
+  { key:'dragonBallDaima', title:'Dragon Ball Daima', subtitle:'Aventura no Reino dos Demônios', href:'dragon-ball-daima.html', cover:'dragon-ball-daima-hd.jpg', episodes:20, year:2024, status:'Completo', description:'Goku e seus amigos são transformados em crianças e partem para o Reino dos Demônios em busca de uma forma de reverter o feitiço.' }
+];
 let services = null;
 let currentUser = null;
 let currentProfile = null;
@@ -188,6 +203,7 @@ const digimonWatched = (profile = {}) => sequenceWatched(profile, DIGIMON_SEQUEN
 const demonSlayerWatched = (profile = {}) => sequenceWatched(profile, DEMON_SLAYER_SEQUENCE);
 const elusiveSamuraiWatched = (profile = {}) => sequenceWatched(profile, ELUSIVE_SAMURAI_SEQUENCE);
 const xMenEvolutionWatched = (profile = {}) => sequenceWatched(profile, X_MEN_EVOLUTION_SEQUENCE);
+const dragonBallWatched = (profile = {}) => sequenceWatched(profile, DRAGON_BALL_SEQUENCE);
 const distributeProgress = (total, capacities) => { let remaining=Math.max(0,Number(total||0)); return capacities.map(capacity=>{const value=Math.min(capacity,remaining); remaining-=value; return value;}); };
 document.addEventListener('error', (event) => { if (event.target instanceof HTMLImageElement && event.target.src !== new URL(DEFAULT_AVATAR, location.href).href) event.target.src = DEFAULT_AVATAR; }, true);
 const xpForLevel = (level) => {
@@ -218,7 +234,7 @@ function renderGlobalNavigation() {
   const nav = document.querySelector('.topbar nav');
   if (!nav) return;
   const page = window.location.pathname.split('/').pop() || 'index.html';
-  nav.innerHTML = `<a class="${page === 'index.html' ? 'active' : ''}" href="${sitePath('index.html')}">HOME</a><a class="${['animes.html','naruto.html','dragon-ball.html','the-villager-of-level-999.html',...MUSHOKU_SEQUENCE.map(anime=>anime.href),...MY_HERO_SEQUENCE.map(anime=>anime.href),...KEKKON_YUBIWA_SEQUENCE.map(anime=>anime.href),...DIGIMON_SEQUENCE.map(anime=>anime.href),...X_MEN_EVOLUTION_SEQUENCE.map(anime=>anime.href)].includes(page) ? 'active' : ''}" href="${sitePath('animes.html')}">DESENHOS</a><span class="nav-dropdown"><a class="${['ranking.html','ranking-animes.html'].includes(page) ? 'active' : ''}" href="${sitePath('ranking.html')}" aria-haspopup="true">RANKING</a><span class="nav-dropdown-menu"><a href="${sitePath('ranking-animes.html')}">Ranking de Desenhos</a><a href="${sitePath('ranking.html')}">Ranking de Usuários</a></span></span>`;
+  nav.innerHTML = `<a class="${page === 'index.html' ? 'active' : ''}" href="${sitePath('index.html')}">HOME</a><a class="${['animes.html','naruto.html','the-villager-of-level-999.html',...DRAGON_BALL_SEQUENCE.map(anime=>anime.href),...MUSHOKU_SEQUENCE.map(anime=>anime.href),...MY_HERO_SEQUENCE.map(anime=>anime.href),...KEKKON_YUBIWA_SEQUENCE.map(anime=>anime.href),...DIGIMON_SEQUENCE.map(anime=>anime.href),...X_MEN_EVOLUTION_SEQUENCE.map(anime=>anime.href)].includes(page) ? 'active' : ''}" href="${sitePath('animes.html')}">DESENHOS</a><span class="nav-dropdown"><a class="${['ranking.html','ranking-animes.html'].includes(page) ? 'active' : ''}" href="${sitePath('ranking.html')}" aria-haspopup="true">RANKING</a><span class="nav-dropdown-menu"><a href="${sitePath('ranking-animes.html')}">Ranking de Desenhos</a><a href="${sitePath('ranking.html')}">Ranking de Usuários</a></span></span>`;
 }
 
 renderGlobalNavigation();
@@ -341,10 +357,10 @@ function renderVillagerCatalogCard() {
 
 function renderGeneratedAnimePage() {
   if (!document.body.hasAttribute('data-generated-anime')) return;
-  const anime = [...MY_HERO_SEQUENCE,...MUSHOKU_SEQUENCE,...KEKKON_YUBIWA_SEQUENCE,...DIGIMON_SEQUENCE,...DEMON_SLAYER_SEQUENCE,...ELUSIVE_SAMURAI_SEQUENCE,...X_MEN_EVOLUTION_SEQUENCE].find(item=>item.key===PAGE_ANIME);
+  const anime = [...DRAGON_BALL_SEQUENCE,...MY_HERO_SEQUENCE,...MUSHOKU_SEQUENCE,...KEKKON_YUBIWA_SEQUENCE,...DIGIMON_SEQUENCE,...DEMON_SLAYER_SEQUENCE,...ELUSIVE_SAMURAI_SEQUENCE,...X_MEN_EVOLUTION_SEQUENCE].find(item=>item.key===PAGE_ANIME);
   const main = document.querySelector('main');
   if (!anime || !main) return;
-  const sequence = PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('demonSlayer') ? DEMON_SLAYER_SEQUENCE : PAGE_ANIME.startsWith('elusiveSamurai') ? ELUSIVE_SAMURAI_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : MUSHOKU_SEQUENCE;
+  const sequence = PAGE_ANIME.startsWith('dragonBall') ? DRAGON_BALL_SEQUENCE : PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('demonSlayer') ? DEMON_SLAYER_SEQUENCE : PAGE_ANIME.startsWith('elusiveSamurai') ? ELUSIVE_SAMURAI_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : MUSHOKU_SEQUENCE;
   const currentIndex = sequence.findIndex(item => item.key === PAGE_ANIME);
   const previous = sequence[currentIndex - 1];
   main.innerHTML = `<section class="anime-detail-hero hero-academia"><div class="anime-detail-inner"><img src="${drawingPath(anime.cover)}" width="500" height="750" alt="Capa de ${escapeHtml(anime.title)}"><div><a class="back-link" href="${drawingPath(previous?.href||'my-hero-academia.html')}">← Voltar para ${escapeHtml(previous?.title||'My Hero Academia')}</a><span class="eyebrow">${escapeHtml(anime.subtitle.toUpperCase())} • ${anime.year}</span><h1>${escapeHtml(anime.title)}</h1><p>${escapeHtml(anime.description)}</p><div class="detail-meta"><span><strong>${anime.episodes}</strong>${anime.episodes===1?'Episódio':'Episódios'}</span><span><strong>22 XP</strong>Por episódio</span><span><strong>${escapeHtml(anime.status)}</strong>Status</span></div><a class="button primary" href="#progresso">Continuar assistindo</a></div></div></section><section class="section episodes-section" id="progresso"><div class="section-heading"><div><span class="eyebrow">${escapeHtml(anime.title.toUpperCase())} • ${anime.episodes} ${anime.episodes===1?'EPISÓDIO':'EPISÓDIOS'}</span><h2>Seu progresso</h2></div><div class="xp-pill"><strong id="xpTotal">0 XP</strong><small>22 XP por episódio</small></div></div><div class="progress-card"><div class="progress-summary"><div class="episode-number"><strong id="watchedCount">0</strong><span>/ ${anime.episodes} assistidos</span></div><div class="progress-track"><span id="progressBar"></span></div></div><div class="progress-actions"><button class="plus-button" id="addEpisode" type="button">+</button><label for="episodeInput">Ou digite até qual episódio assistiu</label><div class="episode-input"><input id="episodeInput" type="number" min="0" max="${anime.episodes}" placeholder="Ex.: ${Math.min(5,anime.episodes)}"><kbd>Enter</kbd></div></div><p class="status" id="progressStatus">Entre na sua conta para salvar seu progresso.</p></div></section>`;
@@ -364,13 +380,13 @@ function renderWatchOnline() {
 }
 
 function renderAnimeTimeline() {
-  const sequence = PAGE_ANIME.startsWith('mushoku') ? MUSHOKU_SEQUENCE : PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('demonSlayer') ? DEMON_SLAYER_SEQUENCE : PAGE_ANIME.startsWith('elusiveSamurai') ? ELUSIVE_SAMURAI_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : null;
+  const sequence = PAGE_ANIME.startsWith('dragonBall') ? DRAGON_BALL_SEQUENCE : PAGE_ANIME.startsWith('mushoku') ? MUSHOKU_SEQUENCE : PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('demonSlayer') ? DEMON_SLAYER_SEQUENCE : PAGE_ANIME.startsWith('elusiveSamurai') ? ELUSIVE_SAMURAI_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : null;
   if (!sequence) return;
   document.querySelector('.sequence-section')?.remove();
   const progressSection = $('#progresso');
   if (!progressSection) return;
   const currentIndex = sequence.findIndex(anime => anime.key === PAGE_ANIME);
-  const franchiseTitle = sequence===MUSHOKU_SEQUENCE ? 'Mushoku Tensei' : sequence===MY_HERO_SEQUENCE ? 'My Hero Academia' : sequence===KEKKON_YUBIWA_SEQUENCE ? 'Kekkon Yubiwa Monogatari' : sequence===DIGIMON_SEQUENCE ? 'Digimon Adventure' : sequence===DEMON_SLAYER_SEQUENCE ? 'Demon Slayer' : sequence===ELUSIVE_SAMURAI_SEQUENCE ? 'The Elusive Samurai' : 'X-Men Evolution';
+  const franchiseTitle = sequence===DRAGON_BALL_SEQUENCE ? 'Dragon Ball' : sequence===MUSHOKU_SEQUENCE ? 'Mushoku Tensei' : sequence===MY_HERO_SEQUENCE ? 'My Hero Academia' : sequence===KEKKON_YUBIWA_SEQUENCE ? 'Kekkon Yubiwa Monogatari' : sequence===DIGIMON_SEQUENCE ? 'Digimon Adventure' : sequence===DEMON_SLAYER_SEQUENCE ? 'Demon Slayer' : sequence===ELUSIVE_SAMURAI_SEQUENCE ? 'The Elusive Samurai' : 'X-Men Evolution';
   const section = document.createElement('section');
   section.className = 'section sequence-section';
   section.innerHTML = `<div class="section-heading"><div><span class="eyebrow">ORDEM PARA ASSISTIR</span><h2>Jornada de ${franchiseTitle}</h2><p class="sequence-intro">Siga a história na ordem. A etapa aberta está destacada.</p></div></div><div class="sequence-timeline">${sequence.map((anime,index) => `<a class="sequence-step${index===currentIndex?' current':''}" href="${drawingPath(anime.href)}"${index===currentIndex?' aria-current="page"':''}><span class="sequence-order">${index+1}</span><img src="${drawingPath(anime.cover)}" width="500" height="750" alt="${escapeHtml(anime.title)}"><div><span class="sequence-subtitle">${escapeHtml(anime.subtitle)}</span><h3>${escapeHtml(anime.title)}</h3><small>${anime.episodes} ${anime.episodes===1?'episódio':'episódios'} • 22 XP por episódio</small>${index===currentIndex?'<strong>VOCÊ ESTÁ AQUI</strong>':index<currentIndex?'<b>← Etapa anterior</b>':'<b>Próxima sequência →</b>'}</div></a>`).join('')}</div>`;
@@ -402,7 +418,7 @@ async function renderRanking() {
     if (document.body.dataset.ranking === 'animes') {
       const animeRanking = [
         { title:'Naruto', href:'naruto.html', cover:'naruto-500x750.jpg', points:users.filter(u=>profileProgress(u,'naruto')>=1).length, total:220 },
-        { title:'Dragon Ball', href:'dragon-ball.html', cover:'dragon-ball-1000x1500.jpg', points:users.filter(u=>profileProgress(u,'dragonBall')>=1).length, total:153 },
+        { title:'Dragon Ball', href:'dragon-ball.html', cover:'dragon-ball-1000x1500.jpg', points:users.filter(u=>dragonBallWatched(u)>=1).length, total:818 },
         { title:'My Hero Academia', href:'my-hero-academia.html', cover:'my-hero-academia-500x750.jpg', points:users.filter(u=>myHeroWatched(u)>=1).length, total:171 }
         ,{ title:'The Villager of Level 999', href:'the-villager-of-level-999.html', cover:'the-villager-of-level-999-500x750.jpg', points:users.filter(u=>profileProgress(u,'villager999')>=1).length, total:12 }
         ,{ title:'Mushoku Tensei', href:'mushoku-tensei.html', cover:'mushoku-tensei-500x750.jpg', points:users.filter(u=>mushokuWatched(u)>=1).length, total:62 }
@@ -431,7 +447,7 @@ function renderProfile() {
 function profileAnimeCards(profile = {}) {
   const animes = [
     {title:'Naruto',href:'naruto.html',cover:'naruto-500x750.jpg',watched:profileProgress(profile,'naruto'),total:220},
-    {title:'Dragon Ball',href:'dragon-ball.html',cover:'dragon-ball-1000x1500.jpg',watched:profileProgress(profile,'dragonBall'),total:153},
+    {title:'Dragon Ball',href:'dragon-ball.html',cover:'dragon-ball-1000x1500.jpg',watched:dragonBallWatched(profile),total:818},
     {title:'My Hero Academia',href:'my-hero-academia.html',cover:'my-hero-academia-500x750.jpg',watched:myHeroWatched(profile),total:171},
     {title:'The Villager of Level 999',href:'the-villager-of-level-999.html',cover:'the-villager-of-level-999-500x750.jpg',watched:profileProgress(profile,'villager999'),total:12},
     {title:'Mushoku Tensei',href:'mushoku-tensei.html',cover:'mushoku-tensei-500x750.jpg',watched:mushokuWatched(profile),total:62},
