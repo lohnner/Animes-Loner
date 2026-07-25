@@ -5,6 +5,7 @@ const sitePath = (path) => new URL(path, SITE_ROOT).href;
 const DRAWING_FOLDERS = [
   ['my-hero-academia','My Hero Academia'], ['mushoku','Mushoku Tensei'],
   ['kekkon-yubiwa','Kekkon Yubiwa Monogatari'], ['digimon','Digimon Adventure'],
+  ['demon-slayer','Demon Slayer'],
   ['x-men-evolution','X-Men Evolution'], ['the-villager-of-level-999','The Villager of Level 999'],
   ['naruto','Naruto']
 ];
@@ -64,7 +65,11 @@ const PROGRESS_FIELDS = {
   xMenEvolutionSeason3: 'xMenEvolutionSeason3WatchedEpisodes', xMenEvolutionSeason4: 'xMenEvolutionSeason4WatchedEpisodes',
   mushokuTensei: 'mushokuTenseiWatchedEpisodes', mushokuTenseiPart2: 'mushokuTenseiPart2WatchedEpisodes',
   mushokuGuardianFitz: 'mushokuGuardianFitzWatchedEpisodes', mushokuSeason2: 'mushokuSeason2WatchedEpisodes',
-  mushokuSeason2Part2: 'mushokuSeason2Part2WatchedEpisodes', mushokuSeason3: 'mushokuSeason3WatchedEpisodes'
+  mushokuSeason2Part2: 'mushokuSeason2Part2WatchedEpisodes', mushokuSeason3: 'mushokuSeason3WatchedEpisodes',
+  demonSlayer: 'demonSlayerWatchedEpisodes', demonSlayerMugenMovie: 'demonSlayerMugenMovieWatchedEpisodes',
+  demonSlayerMugenArc: 'demonSlayerMugenArcWatchedEpisodes', demonSlayerEntertainment: 'demonSlayerEntertainmentWatchedEpisodes',
+  demonSlayerSwordsmith: 'demonSlayerSwordsmithWatchedEpisodes', demonSlayerHashira: 'demonSlayerHashiraWatchedEpisodes',
+  demonSlayerInfinityCastle1: 'demonSlayerInfinityCastle1WatchedEpisodes'
 };
 const progressField = PROGRESS_FIELDS[PAGE_ANIME] || 'watchedEpisodes';
 const XP_PER_EPISODE = 22;
@@ -93,7 +98,14 @@ const WATCH_OPTIONS = {
   mushokuGuardianFitz: { title: 'Mushoku Tensei: Guardião Fitz', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
   mushokuSeason2: { title: 'Mushoku Tensei II', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
   mushokuSeason2Part2: { title: 'Mushoku Tensei II: Parte 2', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
-  mushokuSeason3: { title: 'Mushoku Tensei III', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' }
+  mushokuSeason3: { title: 'Mushoku Tensei III', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
+  demonSlayer: { title: 'Demon Slayer: Kimetsu no Yaiba', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GY5P48XEY/demon-slayer-kimetsu-no-yaiba' },
+  demonSlayerMugenMovie: { title: 'Demon Slayer: Trem Infinito', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GY5P48XEY/demon-slayer-kimetsu-no-yaiba' },
+  demonSlayerMugenArc: { title: 'Demon Slayer: Arco do Trem Infinito', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GY5P48XEY/demon-slayer-kimetsu-no-yaiba' },
+  demonSlayerEntertainment: { title: 'Demon Slayer: Distrito do Entretenimento', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GY5P48XEY/demon-slayer-kimetsu-no-yaiba' },
+  demonSlayerSwordsmith: { title: 'Demon Slayer: Vila dos Ferreiros', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GY5P48XEY/demon-slayer-kimetsu-no-yaiba' },
+  demonSlayerHashira: { title: 'Demon Slayer: Treinamento dos Hashira', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GY5P48XEY/demon-slayer-kimetsu-no-yaiba' },
+  demonSlayerInfinityCastle1: { title: 'Demon Slayer: Castelo Infinito — Parte 1', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GY5P48XEY/demon-slayer-kimetsu-no-yaiba' }
 };
 const MUSHOKU_SEQUENCE = [
   { key:'mushokuTensei', title:'Mushoku Tensei', subtitle:'1ª temporada', href:'mushoku-tensei.html', cover:'mushoku-tensei-500x750.jpg', episodes:11 },
@@ -133,6 +145,15 @@ const DIGIMON_SEQUENCE = [
   { key:'digimonKizuna', title:'Last Evolution Kizuna', subtitle:'Filme', href:'digimon-last-evolution-kizuna.html', cover:'digimon-last-evolution-kizuna-500x750.jpg', episodes:1, year:2020, status:'Filme', description:'Tai e Matt descobrem que crescer pode encerrar para sempre o vínculo com seus parceiros Digimon.' },
   { key:'digimonBeginning', title:'Digimon Adventure 02: The Beginning', subtitle:'Filme', href:'digimon-adventure-02-the-beginning.html', cover:'digimon-adventure-02-the-beginning-500x750.jpg', episodes:1, year:2023, status:'Filme', description:'Davis e seus amigos conhecem Lui, que afirma ter sido a primeira Criança Escolhida, e investigam a origem dos vínculos com os Digimon.' }
 ];
+const DEMON_SLAYER_SEQUENCE = [
+  { key:'demonSlayer', title:'Demon Slayer: Kimetsu no Yaiba', subtitle:'1ª temporada • Determinação Inabalável', href:'demon-slayer.html', cover:'demon-slayer-500x750.jpg', episodes:26, year:2019, status:'Completo', description:'Depois que sua família é atacada por demônios, Tanjiro se torna um caçador para encontrar a cura de Nezuko e enfrentar Muzan Kibutsuji.' },
+  { key:'demonSlayerMugenMovie', title:'Demon Slayer: Trem Infinito', subtitle:'Filme • escolha esta versão ou o arco em 7 episódios', href:'demon-slayer-mugen-train-movie.html', cover:'demon-slayer-mugen-train-movie-500x750.jpg', episodes:1, year:2020, status:'Filme', description:'Tanjiro, Nezuko, Zenitsu e Inosuke embarcam no Trem Infinito e lutam ao lado do Hashira das Chamas, Kyojuro Rengoku.' },
+  { key:'demonSlayerMugenArc', title:'Arco do Trem Infinito', subtitle:'Versão para TV • alternativa ao filme', href:'demon-slayer-mugen-train-arc.html', cover:'demon-slayer-mugen-train-arc-500x750.jpg', episodes:7, year:2021, status:'Completo', description:'A versão televisiva do Trem Infinito inclui um primeiro episódio inédito sobre Rengoku e divide a história do filme em sete capítulos.' },
+  { key:'demonSlayerEntertainment', title:'Arco do Distrito do Entretenimento', subtitle:'2ª temporada • Parte 2', href:'demon-slayer-entertainment-district.html', cover:'demon-slayer-entertainment-district-500x750.jpg', episodes:11, year:2021, status:'Completo', description:'Ao lado do Hashira do Som, Tengen Uzui, o grupo investiga desaparecimentos em Yoshiwara e enfrenta Daki e Gyutaro.' },
+  { key:'demonSlayerSwordsmith', title:'Arco da Vila dos Ferreiros', subtitle:'3ª temporada', href:'demon-slayer-swordsmith-village.html', cover:'demon-slayer-swordsmith-village-500x750.jpg', episodes:11, year:2023, status:'Completo', description:'Tanjiro viaja à vila secreta dos ferreiros, onde se une a Muichiro e Mitsuri contra dois Luas Superiores.' },
+  { key:'demonSlayerHashira', title:'Arco do Treinamento dos Hashira', subtitle:'4ª temporada', href:'demon-slayer-hashira-training.html', cover:'demon-slayer-hashira-training-500x750.jpg', episodes:8, year:2024, status:'Completo', description:'Tanjiro e os demais caçadores passam pelo treinamento dos Hashira enquanto Muzan se aproxima de Nezuko.' },
+  { key:'demonSlayerInfinityCastle1', title:'Castelo Infinito — Parte 1', subtitle:'Filme • início da trilogia final', href:'demon-slayer-infinity-castle-part-1.html', cover:'demon-slayer-infinity-castle-part-1-500x750.jpg', episodes:1, year:2025, status:'Filme', description:'Os Caçadores de Demônios são arrastados ao Castelo Infinito e iniciam a batalha decisiva contra as Luas Superiores.' }
+];
 const X_MEN_EVOLUTION_SEQUENCE = [
   { key:'xMenEvolution', title:'X-Men Evolution', subtitle:'1ª temporada', href:'x-men-evolution.html', cover:'x-men-evolution-500x750.jpg', episodes:13, year:2000, status:'Completo', description:'No Instituto Xavier, jovens mutantes aprendem a dominar seus poderes enquanto enfrentam a Irmandade de Mutantes e os desafios da vida escolar.' },
   { key:'xMenEvolutionSeason2', title:'X-Men Evolution: 2ª Temporada', subtitle:'2ª temporada', href:'x-men-evolution-season-2.html', cover:'x-men-evolution-season-2-500x750.jpg', episodes:17, year:2001, status:'Completo', description:'Novos mutantes chegam ao Instituto Xavier e o conflito com a Irmandade cresce enquanto uma ameaça muito mais poderosa se aproxima.' },
@@ -153,6 +174,7 @@ const mushokuWatched = (profile = {}) => sequenceWatched(profile, MUSHOKU_SEQUEN
 const myHeroWatched = (profile = {}) => sequenceWatched(profile, MY_HERO_SEQUENCE);
 const kekkonYubiwaWatched = (profile = {}) => sequenceWatched(profile, KEKKON_YUBIWA_SEQUENCE);
 const digimonWatched = (profile = {}) => sequenceWatched(profile, DIGIMON_SEQUENCE);
+const demonSlayerWatched = (profile = {}) => sequenceWatched(profile, DEMON_SLAYER_SEQUENCE);
 const xMenEvolutionWatched = (profile = {}) => sequenceWatched(profile, X_MEN_EVOLUTION_SEQUENCE);
 const distributeProgress = (total, capacities) => { let remaining=Math.max(0,Number(total||0)); return capacities.map(capacity=>{const value=Math.min(capacity,remaining); remaining-=value; return value;}); };
 document.addEventListener('error', (event) => { if (event.target instanceof HTMLImageElement && event.target.src !== new URL(DEFAULT_AVATAR, location.href).href) event.target.src = DEFAULT_AVATAR; }, true);
@@ -290,7 +312,8 @@ function renderVillagerCatalogCard() {
     { search:'mushoku tensei jobless reincarnation isekai ittara honki dasu', href:'mushoku-tensei.html', cover:'mushoku-tensei-500x750.jpg', title:'Mushoku Tensei', tag:'ISEKAI', episodes:11 },
     { search:'kekkon yubiwa monogatari tales of wedding rings casamento aneis', href:'kekkon-yubiwa-monogatari.html', cover:'kekkon-yubiwa-monogatari-500x750.jpg', title:'Kekkon Yubiwa Monogatari', tag:'FANTASIA', episodes:25 },
     { search:'digimon adventure digital monsters', href:'digimon-adventure.html', cover:'digimon-adventure-500x750.jpg', title:'Digimon Adventure', tag:'MUNDO DIGITAL', episodes:119 },
-    { search:'x-men evolution x men mutantes marvel', href:'x-men-evolution.html', cover:'x-men-evolution-500x750.jpg', title:'X-Men Evolution', tag:'MUTANTES', episodes:52 }
+    { search:'x-men evolution x men mutantes marvel', href:'x-men-evolution.html', cover:'x-men-evolution-500x750.jpg', title:'X-Men Evolution', tag:'MUTANTES', episodes:52 },
+    { search:'demon slayer kimetsu no yaiba tanjiro nezuko', href:'demon-slayer.html', cover:'demon-slayer-500x750.jpg', title:'Demon Slayer', tag:'CAÇADORES', episodesLabel:'63 episódios • 2 filmes' }
   ];
   extraAnimes.forEach((anime) => {
     if (catalog.querySelector(`[data-anime-title="${anime.search}"]`)) return;
@@ -298,17 +321,17 @@ function renderVillagerCatalogCard() {
     card.className = 'catalog-card';
     card.href = drawingPath(anime.href);
     card.dataset.animeTitle = anime.search;
-    card.innerHTML = `<img src="${drawingPath(anime.cover)}" width="500" height="750" alt="${escapeHtml(anime.title)}"><div><span class="tag">${anime.tag}</span><h2>${escapeHtml(anime.title)}</h2><p>${anime.episodes} episódios • 22 XP por episódio</p></div>`;
+    card.innerHTML = `<img src="${drawingPath(anime.cover)}" width="500" height="750" alt="${escapeHtml(anime.title)}"><div><span class="tag">${anime.tag}</span><h2>${escapeHtml(anime.title)}</h2><p>${anime.episodesLabel || `${anime.episodes} episódios`} • 22 XP por item</p></div>`;
     catalog.append(card);
   });
 }
 
 function renderGeneratedAnimePage() {
   if (!document.body.dataset.generatedAnime) return;
-  const anime = [...MY_HERO_SEQUENCE,...MUSHOKU_SEQUENCE,...KEKKON_YUBIWA_SEQUENCE,...DIGIMON_SEQUENCE,...X_MEN_EVOLUTION_SEQUENCE].find(item=>item.key===PAGE_ANIME);
+  const anime = [...MY_HERO_SEQUENCE,...MUSHOKU_SEQUENCE,...KEKKON_YUBIWA_SEQUENCE,...DIGIMON_SEQUENCE,...DEMON_SLAYER_SEQUENCE,...X_MEN_EVOLUTION_SEQUENCE].find(item=>item.key===PAGE_ANIME);
   const main = document.querySelector('main');
   if (!anime || !main) return;
-  const sequence = PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : MUSHOKU_SEQUENCE;
+  const sequence = PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('demonSlayer') ? DEMON_SLAYER_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : MUSHOKU_SEQUENCE;
   const currentIndex = sequence.findIndex(item => item.key === PAGE_ANIME);
   const previous = sequence[currentIndex - 1];
   main.innerHTML = `<section class="anime-detail-hero hero-academia"><div class="anime-detail-inner"><img src="${drawingPath(anime.cover)}" width="500" height="750" alt="Capa de ${escapeHtml(anime.title)}"><div><a class="back-link" href="${drawingPath(previous?.href||'my-hero-academia.html')}">← Voltar para ${escapeHtml(previous?.title||'My Hero Academia')}</a><span class="eyebrow">${escapeHtml(anime.subtitle.toUpperCase())} • ${anime.year}</span><h1>${escapeHtml(anime.title)}</h1><p>${escapeHtml(anime.description)}</p><div class="detail-meta"><span><strong>${anime.episodes}</strong>${anime.episodes===1?'Episódio':'Episódios'}</span><span><strong>22 XP</strong>Por episódio</span><span><strong>${escapeHtml(anime.status)}</strong>Status</span></div><a class="button primary" href="#progresso">Continuar assistindo</a></div></div></section><section class="section episodes-section" id="progresso"><div class="section-heading"><div><span class="eyebrow">${escapeHtml(anime.title.toUpperCase())} • ${anime.episodes} ${anime.episodes===1?'EPISÓDIO':'EPISÓDIOS'}</span><h2>Seu progresso</h2></div><div class="xp-pill"><strong id="xpTotal">0 XP</strong><small>22 XP por episódio</small></div></div><div class="progress-card"><div class="progress-summary"><div class="episode-number"><strong id="watchedCount">0</strong><span>/ ${anime.episodes} assistidos</span></div><div class="progress-track"><span id="progressBar"></span></div></div><div class="progress-actions"><button class="plus-button" id="addEpisode" type="button">+</button><label for="episodeInput">Ou digite até qual episódio assistiu</label><div class="episode-input"><input id="episodeInput" type="number" min="0" max="${anime.episodes}" placeholder="Ex.: ${Math.min(5,anime.episodes)}"><kbd>Enter</kbd></div></div><p class="status" id="progressStatus">Entre na sua conta para salvar seu progresso.</p></div></section>`;
@@ -328,13 +351,13 @@ function renderWatchOnline() {
 }
 
 function renderAnimeTimeline() {
-  const sequence = PAGE_ANIME.startsWith('mushoku') ? MUSHOKU_SEQUENCE : PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : null;
+  const sequence = PAGE_ANIME.startsWith('mushoku') ? MUSHOKU_SEQUENCE : PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('demonSlayer') ? DEMON_SLAYER_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : null;
   if (!sequence) return;
   document.querySelector('.sequence-section')?.remove();
   const progressSection = $('#progresso');
   if (!progressSection) return;
   const currentIndex = sequence.findIndex(anime => anime.key === PAGE_ANIME);
-  const franchiseTitle = sequence===MUSHOKU_SEQUENCE ? 'Mushoku Tensei' : sequence===MY_HERO_SEQUENCE ? 'My Hero Academia' : sequence===KEKKON_YUBIWA_SEQUENCE ? 'Kekkon Yubiwa Monogatari' : sequence===DIGIMON_SEQUENCE ? 'Digimon Adventure' : 'X-Men Evolution';
+  const franchiseTitle = sequence===MUSHOKU_SEQUENCE ? 'Mushoku Tensei' : sequence===MY_HERO_SEQUENCE ? 'My Hero Academia' : sequence===KEKKON_YUBIWA_SEQUENCE ? 'Kekkon Yubiwa Monogatari' : sequence===DIGIMON_SEQUENCE ? 'Digimon Adventure' : sequence===DEMON_SLAYER_SEQUENCE ? 'Demon Slayer' : 'X-Men Evolution';
   const section = document.createElement('section');
   section.className = 'section sequence-section';
   section.innerHTML = `<div class="section-heading"><div><span class="eyebrow">ORDEM PARA ASSISTIR</span><h2>Jornada de ${franchiseTitle}</h2><p class="sequence-intro">Siga a história na ordem. A etapa aberta está destacada.</p></div></div><div class="sequence-timeline">${sequence.map((anime,index) => `<a class="sequence-step${index===currentIndex?' current':''}" href="${drawingPath(anime.href)}"${index===currentIndex?' aria-current="page"':''}><span class="sequence-order">${index+1}</span><img src="${drawingPath(anime.cover)}" width="500" height="750" alt="${escapeHtml(anime.title)}"><div><span class="sequence-subtitle">${escapeHtml(anime.subtitle)}</span><h3>${escapeHtml(anime.title)}</h3><small>${anime.episodes} ${anime.episodes===1?'episódio':'episódios'} • 22 XP por episódio</small>${index===currentIndex?'<strong>VOCÊ ESTÁ AQUI</strong>':index<currentIndex?'<b>← Etapa anterior</b>':'<b>Próxima sequência →</b>'}</div></a>`).join('')}</div>`;
@@ -371,6 +394,7 @@ async function renderRanking() {
         ,{ title:'Mushoku Tensei', href:'mushoku-tensei.html', cover:'mushoku-tensei-500x750.jpg', points:users.filter(u=>mushokuWatched(u)>=1).length, total:62 }
         ,{ title:'Kekkon Yubiwa Monogatari', href:'kekkon-yubiwa-monogatari.html', cover:'kekkon-yubiwa-monogatari-500x750.jpg', points:users.filter(u=>kekkonYubiwaWatched(u)>=1).length, total:25 }
         ,{ title:'Digimon Adventure', href:'digimon-adventure.html', cover:'digimon-adventure-500x750.jpg', points:users.filter(u=>digimonWatched(u)>=1).length, total:119 }
+        ,{ title:'Demon Slayer', href:'demon-slayer.html', cover:'demon-slayer-500x750.jpg', points:users.filter(u=>demonSlayerWatched(u)>=1).length, total:65 }
         ,{ title:'X-Men Evolution', href:'x-men-evolution.html', cover:'x-men-evolution-500x750.jpg', points:users.filter(u=>xMenEvolutionWatched(u)>=1).length, total:52 }
       ].sort((a,b)=>b.points-a.points || a.title.localeCompare(b.title));
       list.classList.add('anime-ranking-grid');
@@ -397,6 +421,7 @@ function profileAnimeCards(profile = {}) {
     {title:'Mushoku Tensei',href:'mushoku-tensei.html',cover:'mushoku-tensei-500x750.jpg',watched:mushokuWatched(profile),total:62},
     {title:'Kekkon Yubiwa Monogatari',href:'kekkon-yubiwa-monogatari.html',cover:'kekkon-yubiwa-monogatari-500x750.jpg',watched:kekkonYubiwaWatched(profile),total:25},
     {title:'Digimon Adventure',href:'digimon-adventure.html',cover:'digimon-adventure-500x750.jpg',watched:digimonWatched(profile),total:119},
+    {title:'Demon Slayer',href:'demon-slayer.html',cover:'demon-slayer-500x750.jpg',watched:demonSlayerWatched(profile),total:65},
     {title:'X-Men Evolution',href:'x-men-evolution.html',cover:'x-men-evolution-500x750.jpg',watched:xMenEvolutionWatched(profile),total:52}
   ].filter(anime => anime.watched > 0);
   if (!animes.length) return '<p class="empty-animes">Este usuário ainda não adicionou nenhum desenho.</p>';
