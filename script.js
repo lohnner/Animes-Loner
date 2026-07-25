@@ -6,6 +6,7 @@ const DRAWING_FOLDERS = [
   ['my-hero-academia','My Hero Academia'], ['mushoku','Mushoku Tensei'],
   ['kekkon-yubiwa','Kekkon Yubiwa Monogatari'], ['digimon','Digimon Adventure'],
   ['demon-slayer','Demon Slayer'],
+  ['dragon-ball','Dragon Ball'],
   ['the-elusive-samurai','The Elusive Samurai'],
   ['x-men-evolution','X-Men Evolution'], ['the-villager-of-level-999','The Villager of Level 999'],
   ['naruto','Naruto']
@@ -71,7 +72,8 @@ const PROGRESS_FIELDS = {
   demonSlayerMugenArc: 'demonSlayerMugenArcWatchedEpisodes', demonSlayerEntertainment: 'demonSlayerEntertainmentWatchedEpisodes',
   demonSlayerSwordsmith: 'demonSlayerSwordsmithWatchedEpisodes', demonSlayerHashira: 'demonSlayerHashiraWatchedEpisodes',
   demonSlayerInfinityCastle1: 'demonSlayerInfinityCastle1WatchedEpisodes',
-  elusiveSamurai: 'elusiveSamuraiWatchedEpisodes', elusiveSamuraiSeason2: 'elusiveSamuraiSeason2WatchedEpisodes'
+  elusiveSamurai: 'elusiveSamuraiWatchedEpisodes', elusiveSamuraiSeason2: 'elusiveSamuraiSeason2WatchedEpisodes',
+  dragonBall: 'dragonBallWatchedEpisodes'
 };
 const progressField = PROGRESS_FIELDS[PAGE_ANIME] || 'watchedEpisodes';
 const XP_PER_EPISODE = 22;
@@ -79,6 +81,7 @@ const DATA_VERSION = 1;
 const DEFAULT_AVATAR = sitePath('Avatar/naruto-default-500x500.jpg');
 const WATCH_OPTIONS = {
   naruto: { title: 'Naruto', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-pt/series/GY9PJ5KWR/naruto' },
+  dragonBall: { title: 'Dragon Ball', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G8DHV7W21/dragon-ball' },
   myHeroAcademia: { title: 'My Hero Academia', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G6NQ5DWZ6/my-hero-academia' },
   myHeroSeason2: { title: 'My Hero Academia: 2ª Temporada', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G6NQ5DWZ6/my-hero-academia' },
   myHeroSeason3: { title: 'My Hero Academia: 3ª Temporada', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G6NQ5DWZ6/my-hero-academia' },
@@ -215,7 +218,7 @@ function renderGlobalNavigation() {
   const nav = document.querySelector('.topbar nav');
   if (!nav) return;
   const page = window.location.pathname.split('/').pop() || 'index.html';
-  nav.innerHTML = `<a class="${page === 'index.html' ? 'active' : ''}" href="${sitePath('index.html')}">HOME</a><a class="${['animes.html','naruto.html','the-villager-of-level-999.html',...MUSHOKU_SEQUENCE.map(anime=>anime.href),...MY_HERO_SEQUENCE.map(anime=>anime.href),...KEKKON_YUBIWA_SEQUENCE.map(anime=>anime.href),...DIGIMON_SEQUENCE.map(anime=>anime.href),...X_MEN_EVOLUTION_SEQUENCE.map(anime=>anime.href)].includes(page) ? 'active' : ''}" href="${sitePath('animes.html')}">DESENHOS</a><span class="nav-dropdown"><a class="${['ranking.html','ranking-animes.html'].includes(page) ? 'active' : ''}" href="${sitePath('ranking.html')}" aria-haspopup="true">RANKING</a><span class="nav-dropdown-menu"><a href="${sitePath('ranking-animes.html')}">Ranking de Desenhos</a><a href="${sitePath('ranking.html')}">Ranking de Usuários</a></span></span>`;
+  nav.innerHTML = `<a class="${page === 'index.html' ? 'active' : ''}" href="${sitePath('index.html')}">HOME</a><a class="${['animes.html','naruto.html','dragon-ball.html','the-villager-of-level-999.html',...MUSHOKU_SEQUENCE.map(anime=>anime.href),...MY_HERO_SEQUENCE.map(anime=>anime.href),...KEKKON_YUBIWA_SEQUENCE.map(anime=>anime.href),...DIGIMON_SEQUENCE.map(anime=>anime.href),...X_MEN_EVOLUTION_SEQUENCE.map(anime=>anime.href)].includes(page) ? 'active' : ''}" href="${sitePath('animes.html')}">DESENHOS</a><span class="nav-dropdown"><a class="${['ranking.html','ranking-animes.html'].includes(page) ? 'active' : ''}" href="${sitePath('ranking.html')}" aria-haspopup="true">RANKING</a><span class="nav-dropdown-menu"><a href="${sitePath('ranking-animes.html')}">Ranking de Desenhos</a><a href="${sitePath('ranking.html')}">Ranking de Usuários</a></span></span>`;
 }
 
 renderGlobalNavigation();
@@ -399,6 +402,7 @@ async function renderRanking() {
     if (document.body.dataset.ranking === 'animes') {
       const animeRanking = [
         { title:'Naruto', href:'naruto.html', cover:'naruto-500x750.jpg', points:users.filter(u=>profileProgress(u,'naruto')>=1).length, total:220 },
+        { title:'Dragon Ball', href:'dragon-ball.html', cover:'dragon-ball-1000x1500.jpg', points:users.filter(u=>profileProgress(u,'dragonBall')>=1).length, total:153 },
         { title:'My Hero Academia', href:'my-hero-academia.html', cover:'my-hero-academia-500x750.jpg', points:users.filter(u=>myHeroWatched(u)>=1).length, total:171 }
         ,{ title:'The Villager of Level 999', href:'the-villager-of-level-999.html', cover:'the-villager-of-level-999-500x750.jpg', points:users.filter(u=>profileProgress(u,'villager999')>=1).length, total:12 }
         ,{ title:'Mushoku Tensei', href:'mushoku-tensei.html', cover:'mushoku-tensei-500x750.jpg', points:users.filter(u=>mushokuWatched(u)>=1).length, total:62 }
@@ -427,6 +431,7 @@ function renderProfile() {
 function profileAnimeCards(profile = {}) {
   const animes = [
     {title:'Naruto',href:'naruto.html',cover:'naruto-500x750.jpg',watched:profileProgress(profile,'naruto'),total:220},
+    {title:'Dragon Ball',href:'dragon-ball.html',cover:'dragon-ball-1000x1500.jpg',watched:profileProgress(profile,'dragonBall'),total:153},
     {title:'My Hero Academia',href:'my-hero-academia.html',cover:'my-hero-academia-500x750.jpg',watched:myHeroWatched(profile),total:171},
     {title:'The Villager of Level 999',href:'the-villager-of-level-999.html',cover:'the-villager-of-level-999-500x750.jpg',watched:profileProgress(profile,'villager999'),total:12},
     {title:'Mushoku Tensei',href:'mushoku-tensei.html',cover:'mushoku-tensei-500x750.jpg',watched:mushokuWatched(profile),total:62},
