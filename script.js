@@ -327,7 +327,7 @@ function renderVillagerCatalogCard() {
 }
 
 function renderGeneratedAnimePage() {
-  if (!document.body.dataset.generatedAnime) return;
+  if (!document.body.hasAttribute('data-generated-anime')) return;
   const anime = [...MY_HERO_SEQUENCE,...MUSHOKU_SEQUENCE,...KEKKON_YUBIWA_SEQUENCE,...DIGIMON_SEQUENCE,...DEMON_SLAYER_SEQUENCE,...X_MEN_EVOLUTION_SEQUENCE].find(item=>item.key===PAGE_ANIME);
   const main = document.querySelector('main');
   if (!anime || !main) return;
