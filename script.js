@@ -8,6 +8,7 @@ const DRAWING_FOLDERS = [
   ['demon-slayer','Demon Slayer'],
   ['dragon-ball','Dragon Ball'],
   ['the-elusive-samurai','The Elusive Samurai'],
+  ['goodbye-lara','Goodbye Lara'],
   ['x-men-evolution','X-Men Evolution'], ['the-villager-of-level-999','The Villager of Level 999'],
   ['naruto','Naruto']
 ];
@@ -53,6 +54,7 @@ const PAGE_ANIME = document.body.dataset.anime || 'naruto';
 const TOTAL_EPISODES = Number(document.body.dataset.totalEpisodes || 220);
 const PROGRESS_FIELDS = {
   naruto: 'watchedEpisodes', myHeroAcademia: 'myHeroWatchedEpisodes', villager999: 'villager999WatchedEpisodes',
+  goodbyeLara: 'goodbyeLaraWatchedEpisodes',
   myHeroSeason2: 'myHeroSeason2WatchedEpisodes', myHeroSeason3: 'myHeroSeason3WatchedEpisodes',
   myHeroSeason4: 'myHeroSeason4WatchedEpisodes', myHeroSeason5: 'myHeroSeason5WatchedEpisodes',
   myHeroSeason6: 'myHeroSeason6WatchedEpisodes', myHeroSeason7: 'myHeroSeason7WatchedEpisodes',
@@ -105,6 +107,7 @@ const WATCH_OPTIONS = {
   xMenEvolutionSeason3: { title: 'X-Men Evolution: 3ª Temporada', platform: 'Animes Online CC (360p)', url: 'https://animesonlinecc.to/anime/x-men-evolution/' },
   xMenEvolutionSeason4: { title: 'X-Men Evolution: 4ª Temporada', platform: 'Animes Online CC (360p)', url: 'https://animesonlinecc.to/anime/x-men-evolution/' },
   villager999: { title: 'The Villager of Level 999', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GT00371878/the-villager-of-level-999' },
+  goodbyeLara: { title: 'Goodbye, Lara', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/series/GT00378059/goodbye-lara' },
   mushokuTensei: { title: 'Mushoku Tensei: Jobless Reincarnation', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
   mushokuTenseiPart2: { title: 'Mushoku Tensei: Parte 2', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
   mushokuGuardianFitz: { title: 'Mushoku Tensei: Guardião Fitz', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
@@ -343,6 +346,7 @@ function renderVillagerCatalogCard() {
     { search:'x-men evolution x men mutantes marvel', href:'x-men-evolution.html', cover:'x-men-evolution-500x750.jpg', title:'X-Men Evolution', tag:'MUTANTES', episodes:52 },
     { search:'demon slayer kimetsu no yaiba tanjiro nezuko', href:'demon-slayer.html', cover:'demon-slayer-500x750.jpg', title:'Demon Slayer', tag:'CAÇADORES', episodesLabel:'63 episódios • 2 filmes' },
     { search:'the elusive samurai nige jouzu no wakagimi samurai fugitivo', href:'the-elusive-samurai.html', cover:'the-elusive-samurai-500x750.jpg', title:'The Elusive Samurai', tag:'SAMURAI', episodes:24 }
+    ,{ search:'goodbye lara sayonara lara adeus lara sereia', href:'goodbye-lara.html', cover:'goodbye-lara-hd.jpg', title:'Goodbye, Lara', tag:'FANTASIA', episodes:12 }
   ];
   extraAnimes.forEach((anime) => {
     if (catalog.querySelector(`[data-anime-title="${anime.search}"]`)) return;
@@ -427,6 +431,7 @@ async function renderRanking() {
         ,{ title:'Demon Slayer', href:'demon-slayer.html', cover:'demon-slayer-500x750.jpg', points:users.filter(u=>demonSlayerWatched(u)>=1).length, total:65 }
         ,{ title:'The Elusive Samurai', href:'the-elusive-samurai.html', cover:'the-elusive-samurai-500x750.jpg', points:users.filter(u=>elusiveSamuraiWatched(u)>=1).length, total:24 }
         ,{ title:'X-Men Evolution', href:'x-men-evolution.html', cover:'x-men-evolution-500x750.jpg', points:users.filter(u=>xMenEvolutionWatched(u)>=1).length, total:52 }
+        ,{ title:'Goodbye, Lara', href:'goodbye-lara.html', cover:'goodbye-lara-hd.jpg', points:users.filter(u=>profileProgress(u,'goodbyeLara')>=1).length, total:12 }
       ].sort((a,b)=>b.points-a.points || a.title.localeCompare(b.title));
       list.classList.add('anime-ranking-grid');
       list.innerHTML = animeRanking.map((anime,i)=>`<a class="anime-ranking-card" href="${drawingPath(anime.href)}"><div class="anime-ranking-cover"><img src="${drawingPath(anime.cover)}" width="500" height="750" alt="${escapeHtml(anime.title)}"><span>#${i+1}</span></div><div class="anime-ranking-info"><span class="tag">${i===0?'MAIS ADICIONADO':'EM DESTAQUE'}</span><h2>${escapeHtml(anime.title)}</h2><p>${anime.total} episódios disponíveis</p><strong>${anime.points.toLocaleString('pt-BR')} <small>${anime.points===1?'ponto':'pontos'} • usuários que começaram</small></strong></div></a>`).join('');
@@ -456,6 +461,7 @@ function profileAnimeCards(profile = {}) {
     {title:'Demon Slayer',href:'demon-slayer.html',cover:'demon-slayer-500x750.jpg',watched:demonSlayerWatched(profile),total:65},
     {title:'The Elusive Samurai',href:'the-elusive-samurai.html',cover:'the-elusive-samurai-500x750.jpg',watched:elusiveSamuraiWatched(profile),total:24},
     {title:'X-Men Evolution',href:'x-men-evolution.html',cover:'x-men-evolution-500x750.jpg',watched:xMenEvolutionWatched(profile),total:52}
+    ,{title:'Goodbye, Lara',href:'goodbye-lara.html',cover:'goodbye-lara-hd.jpg',watched:profileProgress(profile,'goodbyeLara'),total:12}
   ].filter(anime => anime.watched > 0);
   if (!animes.length) return '<p class="empty-animes">Este usuário ainda não adicionou nenhum desenho.</p>';
   return `<div class="profile-anime-grid">${animes.map(anime=>`<a href="${drawingPath(anime.href)}" class="profile-anime-card"><img src="${drawingPath(anime.cover)}" width="90" height="135" alt="${escapeHtml(anime.title)}"><div><strong>${escapeHtml(anime.title)}</strong><span>Episódio ${anime.watched} de ${anime.total}</span><span class="mini-progress"><i style="width:${anime.watched/anime.total*100}%"></i></span><small>${(anime.watched*XP_PER_EPISODE).toLocaleString('pt-BR')} XP</small></div></a>`).join('')}</div>`;
