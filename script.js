@@ -11,6 +11,7 @@ const DRAWING_FOLDERS = [
   ['goodbye-lara','Goodbye Lara'],
   ['cavaleiros-do-zodiaco','Cavaleiros do Zodiaco'],
   ['x-men-evolution','X-Men Evolution'], ['the-villager-of-level-999','The Villager of Level 999'],
+  ['x-men-97','X-Men 97'],
   ['naruto','Naruto']
 ];
 const drawingPath = (file) => {
@@ -69,6 +70,7 @@ const PROGRESS_FIELDS = {
   digimonMemorial: 'digimonMemorialWatchedEpisodes', digimonKizuna: 'digimonKizunaWatchedEpisodes', digimonBeginning: 'digimonBeginningWatchedEpisodes',
   xMenEvolution: 'xMenEvolutionWatchedEpisodes', xMenEvolutionSeason2: 'xMenEvolutionSeason2WatchedEpisodes',
   xMenEvolutionSeason3: 'xMenEvolutionSeason3WatchedEpisodes', xMenEvolutionSeason4: 'xMenEvolutionSeason4WatchedEpisodes',
+  xMen97: 'xMen97WatchedEpisodes', xMen97Season2: 'xMen97Season2WatchedEpisodes',
   mushokuTensei: 'mushokuTenseiWatchedEpisodes', mushokuTenseiPart2: 'mushokuTenseiPart2WatchedEpisodes',
   mushokuGuardianFitz: 'mushokuGuardianFitzWatchedEpisodes', mushokuSeason2: 'mushokuSeason2WatchedEpisodes',
   mushokuSeason2Part2: 'mushokuSeason2Part2WatchedEpisodes', mushokuSeason3: 'mushokuSeason3WatchedEpisodes',
@@ -111,6 +113,8 @@ const WATCH_OPTIONS = {
   villager999: { title: 'The Villager of Level 999', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GT00371878/the-villager-of-level-999' },
   goodbyeLara: { title: 'Goodbye, Lara', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/series/GT00378059/goodbye-lara' },
   saintSeiya: { title: 'Os Cavaleiros do Zodíaco', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/search?q=Saint%20Seiya' },
+  xMen97: { title: "X-Men '97", platform: 'Disney+', url: 'https://www.disneyplus.com/pt-br/browse/entity-8dc91ed4-cdca-4fab-9723-d3d42f382d34' },
+  xMen97Season2: { title: "X-Men '97: 2ª Temporada", platform: 'Disney+', url: 'https://www.disneyplus.com/pt-br/browse/entity-8dc91ed4-cdca-4fab-9723-d3d42f382d34' },
   mushokuTensei: { title: 'Mushoku Tensei: Jobless Reincarnation', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
   mushokuTenseiPart2: { title: 'Mushoku Tensei: Parte 2', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
   mushokuGuardianFitz: { title: 'Mushoku Tensei: Guardião Fitz', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
@@ -184,6 +188,10 @@ const X_MEN_EVOLUTION_SEQUENCE = [
   { key:'xMenEvolutionSeason3', title:'X-Men Evolution: 3ª Temporada', subtitle:'3ª temporada', href:'x-men-evolution-season-3.html', cover:'x-men-evolution-season-3-500x750.jpg', episodes:13, year:2002, status:'Completo', description:'Com a existência dos mutantes revelada ao mundo, os X-Men enfrentam preconceito, perseguição e o despertar de Apocalipse.' },
   { key:'xMenEvolutionSeason4', title:'X-Men Evolution: 4ª Temporada', subtitle:'4ª temporada', href:'x-men-evolution-season-4.html', cover:'x-men-evolution-season-4-500x750.jpg', episodes:9, year:2003, status:'Completo', description:'Na temporada final, os X-Men precisam reunir aliados e impedir que Apocalipse transforme o destino da humanidade.' }
 ];
+const X_MEN_97_SEQUENCE = [
+  { key:'xMen97', title:"X-Men '97", subtitle:'1ª temporada', href:'x-men-97.html', cover:'x-men-97-hd.jpg', episodes:10, year:2024, status:'Completo', description:'Após a partida do Professor Xavier, os X-Men enfrentam um futuro inesperado sob a liderança de Magneto enquanto novas ameaças colocam mutantes e humanos em rota de colisão.' },
+  { key:'xMen97Season2', title:"X-Men '97: 2ª Temporada", subtitle:'2ª temporada', href:'x-men-97-season-2.html', cover:'x-men-97-season-2-hd.webp', episodes:9, year:2026, status:'Em exibição', description:'Separados através de diferentes eras, os X-Men lutam para voltar para casa enquanto Apocalipse e uma nova onda de intolerância ameaçam o futuro dos mutantes.' }
+];
 const DRAGON_BALL_SEQUENCE = [
   { key:'dragonBall', title:'Dragon Ball', subtitle:'Série original', href:'dragon-ball.html', cover:'dragon-ball-1000x1500.jpg', episodes:153, year:1986, status:'Completo', description:'Son Goku conhece Bulma e parte em busca das sete Esferas do Dragão, fazendo amigos e se tornando um grande lutador.' },
   { key:'dragonBallZ', title:'Dragon Ball Z', subtitle:'Continuação principal', href:'dragon-ball-z.html', cover:'dragon-ball-z-hd.jpg', episodes:291, year:1989, status:'Completo', description:'Goku descobre sua origem Saiyajin e protege a Terra de ameaças cada vez mais poderosas ao lado dos Guerreiros Z.' },
@@ -209,6 +217,7 @@ const digimonWatched = (profile = {}) => sequenceWatched(profile, DIGIMON_SEQUEN
 const demonSlayerWatched = (profile = {}) => sequenceWatched(profile, DEMON_SLAYER_SEQUENCE);
 const elusiveSamuraiWatched = (profile = {}) => sequenceWatched(profile, ELUSIVE_SAMURAI_SEQUENCE);
 const xMenEvolutionWatched = (profile = {}) => sequenceWatched(profile, X_MEN_EVOLUTION_SEQUENCE);
+const xMen97Watched = (profile = {}) => sequenceWatched(profile, X_MEN_97_SEQUENCE);
 const dragonBallWatched = (profile = {}) => sequenceWatched(profile, DRAGON_BALL_SEQUENCE);
 const distributeProgress = (total, capacities) => { let remaining=Math.max(0,Number(total||0)); return capacities.map(capacity=>{const value=Math.min(capacity,remaining); remaining-=value; return value;}); };
 document.addEventListener('error', (event) => { if (event.target instanceof HTMLImageElement && event.target.src !== new URL(DEFAULT_AVATAR, location.href).href) event.target.src = DEFAULT_AVATAR; }, true);
@@ -351,6 +360,7 @@ function renderVillagerCatalogCard() {
     { search:'the elusive samurai nige jouzu no wakagimi samurai fugitivo', href:'the-elusive-samurai.html', cover:'the-elusive-samurai-500x750.jpg', title:'The Elusive Samurai', tag:'SAMURAI', episodes:24 }
     ,{ search:'goodbye lara sayonara lara adeus lara sereia', href:'goodbye-lara.html', cover:'goodbye-lara-hd.jpg', title:'Goodbye, Lara', tag:'FANTASIA', episodes:12 }
     ,{ search:'cavaleiros do zodiaco saint seiya seiya pegaso atena', href:'cavaleiros-do-zodiaco.html', cover:'cavaleiros-do-zodiaco-hd.jpg', title:'Os Cavaleiros do Zodíaco', tag:'CLÁSSICO', episodes:114 }
+    ,{ search:"x-men 97 x men 97 marvel mutantes wolverine ciclope", href:'x-men-97.html', cover:'x-men-97-hd.jpg', title:"X-Men '97", tag:'MARVEL', episodesLabel:'2 temporadas • 19 episódios' }
   ];
   extraAnimes.forEach((anime) => {
     if (catalog.querySelector(`[data-anime-title="${anime.search}"]`)) return;
@@ -365,10 +375,10 @@ function renderVillagerCatalogCard() {
 
 function renderGeneratedAnimePage() {
   if (!document.body.hasAttribute('data-generated-anime')) return;
-  const anime = [...DRAGON_BALL_SEQUENCE,...MY_HERO_SEQUENCE,...MUSHOKU_SEQUENCE,...KEKKON_YUBIWA_SEQUENCE,...DIGIMON_SEQUENCE,...DEMON_SLAYER_SEQUENCE,...ELUSIVE_SAMURAI_SEQUENCE,...X_MEN_EVOLUTION_SEQUENCE].find(item=>item.key===PAGE_ANIME);
+  const anime = [...DRAGON_BALL_SEQUENCE,...MY_HERO_SEQUENCE,...MUSHOKU_SEQUENCE,...KEKKON_YUBIWA_SEQUENCE,...DIGIMON_SEQUENCE,...DEMON_SLAYER_SEQUENCE,...ELUSIVE_SAMURAI_SEQUENCE,...X_MEN_EVOLUTION_SEQUENCE,...X_MEN_97_SEQUENCE].find(item=>item.key===PAGE_ANIME);
   const main = document.querySelector('main');
   if (!anime || !main) return;
-  const sequence = PAGE_ANIME.startsWith('dragonBall') ? DRAGON_BALL_SEQUENCE : PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('demonSlayer') ? DEMON_SLAYER_SEQUENCE : PAGE_ANIME.startsWith('elusiveSamurai') ? ELUSIVE_SAMURAI_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : MUSHOKU_SEQUENCE;
+  const sequence = PAGE_ANIME.startsWith('dragonBall') ? DRAGON_BALL_SEQUENCE : PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('demonSlayer') ? DEMON_SLAYER_SEQUENCE : PAGE_ANIME.startsWith('elusiveSamurai') ? ELUSIVE_SAMURAI_SEQUENCE : PAGE_ANIME.startsWith('xMen97') ? X_MEN_97_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : MUSHOKU_SEQUENCE;
   const currentIndex = sequence.findIndex(item => item.key === PAGE_ANIME);
   const previous = sequence[currentIndex - 1];
   main.innerHTML = `<section class="anime-detail-hero hero-academia"><div class="anime-detail-inner"><img src="${drawingPath(anime.cover)}" width="500" height="750" alt="Capa de ${escapeHtml(anime.title)}"><div><a class="back-link" href="${drawingPath(previous?.href||'my-hero-academia.html')}">← Voltar para ${escapeHtml(previous?.title||'My Hero Academia')}</a><span class="eyebrow">${escapeHtml(anime.subtitle.toUpperCase())} • ${anime.year}</span><h1>${escapeHtml(anime.title)}</h1><p>${escapeHtml(anime.description)}</p><div class="detail-meta"><span><strong>${anime.episodes}</strong>${anime.episodes===1?'Episódio':'Episódios'}</span><span><strong>22 XP</strong>Por episódio</span><span><strong>${escapeHtml(anime.status)}</strong>Status</span></div><a class="button primary" href="#progresso">Continuar assistindo</a></div></div></section><section class="section episodes-section" id="progresso"><div class="section-heading"><div><span class="eyebrow">${escapeHtml(anime.title.toUpperCase())} • ${anime.episodes} ${anime.episodes===1?'EPISÓDIO':'EPISÓDIOS'}</span><h2>Seu progresso</h2></div><div class="xp-pill"><strong id="xpTotal">0 XP</strong><small>22 XP por episódio</small></div></div><div class="progress-card"><div class="progress-summary"><div class="episode-number"><strong id="watchedCount">0</strong><span>/ ${anime.episodes} assistidos</span></div><div class="progress-track"><span id="progressBar"></span></div></div><div class="progress-actions"><button class="plus-button" id="addEpisode" type="button">+</button><label for="episodeInput">Ou digite até qual episódio assistiu</label><div class="episode-input"><input id="episodeInput" type="number" min="0" max="${anime.episodes}" placeholder="Ex.: ${Math.min(5,anime.episodes)}"><kbd>Enter</kbd></div></div><p class="status" id="progressStatus">Entre na sua conta para salvar seu progresso.</p></div></section>`;
@@ -388,13 +398,13 @@ function renderWatchOnline() {
 }
 
 function renderAnimeTimeline() {
-  const sequence = PAGE_ANIME.startsWith('dragonBall') ? DRAGON_BALL_SEQUENCE : PAGE_ANIME.startsWith('mushoku') ? MUSHOKU_SEQUENCE : PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('demonSlayer') ? DEMON_SLAYER_SEQUENCE : PAGE_ANIME.startsWith('elusiveSamurai') ? ELUSIVE_SAMURAI_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : null;
+  const sequence = PAGE_ANIME.startsWith('dragonBall') ? DRAGON_BALL_SEQUENCE : PAGE_ANIME.startsWith('mushoku') ? MUSHOKU_SEQUENCE : PAGE_ANIME.startsWith('myHero') ? MY_HERO_SEQUENCE : PAGE_ANIME.startsWith('kekkon') ? KEKKON_YUBIWA_SEQUENCE : PAGE_ANIME.startsWith('digimon') ? DIGIMON_SEQUENCE : PAGE_ANIME.startsWith('demonSlayer') ? DEMON_SLAYER_SEQUENCE : PAGE_ANIME.startsWith('elusiveSamurai') ? ELUSIVE_SAMURAI_SEQUENCE : PAGE_ANIME.startsWith('xMen97') ? X_MEN_97_SEQUENCE : PAGE_ANIME.startsWith('xMen') ? X_MEN_EVOLUTION_SEQUENCE : null;
   if (!sequence) return;
   document.querySelector('.sequence-section')?.remove();
   const progressSection = $('#progresso');
   if (!progressSection) return;
   const currentIndex = sequence.findIndex(anime => anime.key === PAGE_ANIME);
-  const franchiseTitle = sequence===DRAGON_BALL_SEQUENCE ? 'Dragon Ball' : sequence===MUSHOKU_SEQUENCE ? 'Mushoku Tensei' : sequence===MY_HERO_SEQUENCE ? 'My Hero Academia' : sequence===KEKKON_YUBIWA_SEQUENCE ? 'Kekkon Yubiwa Monogatari' : sequence===DIGIMON_SEQUENCE ? 'Digimon Adventure' : sequence===DEMON_SLAYER_SEQUENCE ? 'Demon Slayer' : sequence===ELUSIVE_SAMURAI_SEQUENCE ? 'The Elusive Samurai' : 'X-Men Evolution';
+  const franchiseTitle = sequence===DRAGON_BALL_SEQUENCE ? 'Dragon Ball' : sequence===MUSHOKU_SEQUENCE ? 'Mushoku Tensei' : sequence===MY_HERO_SEQUENCE ? 'My Hero Academia' : sequence===KEKKON_YUBIWA_SEQUENCE ? 'Kekkon Yubiwa Monogatari' : sequence===DIGIMON_SEQUENCE ? 'Digimon Adventure' : sequence===DEMON_SLAYER_SEQUENCE ? 'Demon Slayer' : sequence===ELUSIVE_SAMURAI_SEQUENCE ? 'The Elusive Samurai' : sequence===X_MEN_97_SEQUENCE ? "X-Men '97" : 'X-Men Evolution';
   const section = document.createElement('section');
   section.className = 'section sequence-section';
   section.innerHTML = `<div class="section-heading"><div><span class="eyebrow">ORDEM PARA ASSISTIR</span><h2>Jornada de ${franchiseTitle}</h2><p class="sequence-intro">Siga a história na ordem. A etapa aberta está destacada.</p></div></div><div class="sequence-timeline">${sequence.map((anime,index) => `<a class="sequence-step${index===currentIndex?' current':''}" href="${drawingPath(anime.href)}"${index===currentIndex?' aria-current="page"':''}><span class="sequence-order">${index+1}</span><img src="${drawingPath(anime.cover)}" width="500" height="750" alt="${escapeHtml(anime.title)}"><div><span class="sequence-subtitle">${escapeHtml(anime.subtitle)}</span><h3>${escapeHtml(anime.title)}</h3><small>${anime.episodes} ${anime.episodes===1?'episódio':'episódios'} • 22 XP por episódio</small>${index===currentIndex?'<strong>VOCÊ ESTÁ AQUI</strong>':index<currentIndex?'<b>← Etapa anterior</b>':'<b>Próxima sequência →</b>'}</div></a>`).join('')}</div>`;
@@ -437,6 +447,7 @@ async function renderRanking() {
         ,{ title:'X-Men Evolution', href:'x-men-evolution.html', cover:'x-men-evolution-500x750.jpg', points:users.filter(u=>xMenEvolutionWatched(u)>=1).length, total:52 }
         ,{ title:'Goodbye, Lara', href:'goodbye-lara.html', cover:'goodbye-lara-hd.jpg', points:users.filter(u=>profileProgress(u,'goodbyeLara')>=1).length, total:12 }
         ,{ title:'Os Cavaleiros do Zodíaco', href:'cavaleiros-do-zodiaco.html', cover:'cavaleiros-do-zodiaco-hd.jpg', points:users.filter(u=>profileProgress(u,'saintSeiya')>=1).length, total:114 }
+        ,{ title:"X-Men '97", href:'x-men-97.html', cover:'x-men-97-hd.jpg', points:users.filter(u=>xMen97Watched(u)>=1).length, total:19 }
       ].sort((a,b)=>b.points-a.points || a.title.localeCompare(b.title));
       list.classList.add('anime-ranking-grid');
       list.innerHTML = animeRanking.map((anime,i)=>`<a class="anime-ranking-card" href="${drawingPath(anime.href)}"><div class="anime-ranking-cover"><img src="${drawingPath(anime.cover)}" width="500" height="750" alt="${escapeHtml(anime.title)}"><span>#${i+1}</span></div><div class="anime-ranking-info"><span class="tag">${i===0?'MAIS ADICIONADO':'EM DESTAQUE'}</span><h2>${escapeHtml(anime.title)}</h2><p>${anime.total} episódios disponíveis</p><strong>${anime.points.toLocaleString('pt-BR')} <small>${anime.points===1?'ponto':'pontos'} • usuários que começaram</small></strong></div></a>`).join('');
@@ -468,6 +479,7 @@ function profileAnimeCards(profile = {}) {
     {title:'X-Men Evolution',href:'x-men-evolution.html',cover:'x-men-evolution-500x750.jpg',watched:xMenEvolutionWatched(profile),total:52}
     ,{title:'Goodbye, Lara',href:'goodbye-lara.html',cover:'goodbye-lara-hd.jpg',watched:profileProgress(profile,'goodbyeLara'),total:12}
     ,{title:'Os Cavaleiros do Zodíaco',href:'cavaleiros-do-zodiaco.html',cover:'cavaleiros-do-zodiaco-hd.jpg',watched:profileProgress(profile,'saintSeiya'),total:114}
+    ,{title:"X-Men '97",href:'x-men-97.html',cover:'x-men-97-hd.jpg',watched:xMen97Watched(profile),total:19}
   ].filter(anime => anime.watched > 0);
   if (!animes.length) return '<p class="empty-animes">Este usuário ainda não adicionou nenhum desenho.</p>';
   return `<div class="profile-anime-grid">${animes.map(anime=>`<a href="${drawingPath(anime.href)}" class="profile-anime-card"><img src="${drawingPath(anime.cover)}" width="90" height="135" alt="${escapeHtml(anime.title)}"><div><strong>${escapeHtml(anime.title)}</strong><span>Episódio ${anime.watched} de ${anime.total}</span><span class="mini-progress"><i style="width:${anime.watched/anime.total*100}%"></i></span><small>${(anime.watched*XP_PER_EPISODE).toLocaleString('pt-BR')} XP</small></div></a>`).join('')}</div>`;
