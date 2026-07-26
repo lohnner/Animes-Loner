@@ -4,7 +4,7 @@ const SITE_ROOT = new URL('.', import.meta.url);
 const sitePath = (path) => new URL(path, SITE_ROOT).href;
 const DRAWING_FOLDERS = [
   ['my-hero-academia','My Hero Academia'], ['mushoku','Mushoku Tensei'],
-  ['kekkon-yubiwa','Kekkon Yubiwa Monogatari'], ['digimon','Digimon Adventure'],
+  ['kekkon-yubiwa','Kekkon Yubiwa Monogatari'], ['digimon-beatbreak','Digimon Beatbreak'], ['digimon','Digimon Adventure'],
   ['demon-slayer','Demon Slayer'],
   ['dragon-ball','Dragon Ball'],
   ['the-elusive-samurai','The Elusive Samurai'],
@@ -68,6 +68,7 @@ const PROGRESS_FIELDS = {
   digimonTri1: 'digimonTri1WatchedEpisodes', digimonTri2: 'digimonTri2WatchedEpisodes', digimonTri3: 'digimonTri3WatchedEpisodes',
   digimonTri4: 'digimonTri4WatchedEpisodes', digimonTri5: 'digimonTri5WatchedEpisodes', digimonTri6: 'digimonTri6WatchedEpisodes',
   digimonMemorial: 'digimonMemorialWatchedEpisodes', digimonKizuna: 'digimonKizunaWatchedEpisodes', digimonBeginning: 'digimonBeginningWatchedEpisodes',
+  digimonBeatbreak: 'digimonBeatbreakWatchedEpisodes',
   xMenEvolution: 'xMenEvolutionWatchedEpisodes', xMenEvolutionSeason2: 'xMenEvolutionSeason2WatchedEpisodes',
   xMenEvolutionSeason3: 'xMenEvolutionSeason3WatchedEpisodes', xMenEvolutionSeason4: 'xMenEvolutionSeason4WatchedEpisodes',
   xMen97: 'xMen97WatchedEpisodes', xMen97Season2: 'xMen97Season2WatchedEpisodes',
@@ -115,6 +116,7 @@ const WATCH_OPTIONS = {
   saintSeiya: { title: 'Os Cavaleiros do Zodíaco', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/search?q=Saint%20Seiya' },
   xMen97: { title: "X-Men '97", platform: 'Disney+', url: 'https://www.disneyplus.com/pt-br/browse/entity-8dc91ed4-cdca-4fab-9723-d3d42f382d34' },
   xMen97Season2: { title: "X-Men '97: 2ª Temporada", platform: 'Disney+', url: 'https://www.disneyplus.com/pt-br/browse/entity-8dc91ed4-cdca-4fab-9723-d3d42f382d34' },
+  digimonBeatbreak: { title: 'Digimon Beatbreak', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/GT00364378/digimon-beatbreak' },
   mushokuTensei: { title: 'Mushoku Tensei: Jobless Reincarnation', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
   mushokuTenseiPart2: { title: 'Mushoku Tensei: Parte 2', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
   mushokuGuardianFitz: { title: 'Mushoku Tensei: Guardião Fitz', platform: 'Crunchyroll', url: 'https://www.crunchyroll.com/pt-br/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation' },
@@ -355,6 +357,7 @@ function renderVillagerCatalogCard() {
     { search:'mushoku tensei jobless reincarnation isekai ittara honki dasu', href:'mushoku-tensei.html', cover:'mushoku-tensei-500x750.jpg', title:'Mushoku Tensei', tag:'ISEKAI', episodes:11 },
     { search:'kekkon yubiwa monogatari tales of wedding rings casamento aneis', href:'kekkon-yubiwa-monogatari.html', cover:'kekkon-yubiwa-monogatari-500x750.jpg', title:'Kekkon Yubiwa Monogatari', tag:'FANTASIA', episodes:25 },
     { search:'digimon adventure digital monsters', href:'digimon-adventure.html', cover:'digimon-adventure-500x750.jpg', title:'Digimon Adventure', tag:'MUNDO DIGITAL', episodes:119 },
+    { search:'digimon beatbreak beat break tomoro gekkomon', href:'digimon-beatbreak.html', cover:'digimon-beatbreak-hd.jpg', title:'Digimon Beatbreak', tag:'NOVA GERAÇÃO', episodes:40 },
     { search:'x-men evolution x men mutantes marvel', href:'x-men-evolution.html', cover:'x-men-evolution-500x750.jpg', title:'X-Men Evolution', tag:'MUTANTES', episodes:52 },
     { search:'demon slayer kimetsu no yaiba tanjiro nezuko', href:'demon-slayer.html', cover:'demon-slayer-500x750.jpg', title:'Demon Slayer', tag:'CAÇADORES', episodesLabel:'63 episódios • 2 filmes' },
     { search:'the elusive samurai nige jouzu no wakagimi samurai fugitivo', href:'the-elusive-samurai.html', cover:'the-elusive-samurai-500x750.jpg', title:'The Elusive Samurai', tag:'SAMURAI', episodes:24 }
@@ -442,6 +445,7 @@ async function renderRanking() {
         ,{ title:'Mushoku Tensei', href:'mushoku-tensei.html', cover:'mushoku-tensei-500x750.jpg', points:users.filter(u=>mushokuWatched(u)>=1).length, total:62 }
         ,{ title:'Kekkon Yubiwa Monogatari', href:'kekkon-yubiwa-monogatari.html', cover:'kekkon-yubiwa-monogatari-500x750.jpg', points:users.filter(u=>kekkonYubiwaWatched(u)>=1).length, total:25 }
         ,{ title:'Digimon Adventure', href:'digimon-adventure.html', cover:'digimon-adventure-500x750.jpg', points:users.filter(u=>digimonWatched(u)>=1).length, total:119 }
+        ,{ title:'Digimon Beatbreak', href:'digimon-beatbreak.html', cover:'digimon-beatbreak-hd.jpg', points:users.filter(u=>profileProgress(u,'digimonBeatbreak')>=1).length, total:40 }
         ,{ title:'Demon Slayer', href:'demon-slayer.html', cover:'demon-slayer-500x750.jpg', points:users.filter(u=>demonSlayerWatched(u)>=1).length, total:65 }
         ,{ title:'The Elusive Samurai', href:'the-elusive-samurai.html', cover:'the-elusive-samurai-500x750.jpg', points:users.filter(u=>elusiveSamuraiWatched(u)>=1).length, total:24 }
         ,{ title:'X-Men Evolution', href:'x-men-evolution.html', cover:'x-men-evolution-500x750.jpg', points:users.filter(u=>xMenEvolutionWatched(u)>=1).length, total:52 }
@@ -474,6 +478,7 @@ function profileAnimeCards(profile = {}) {
     {title:'Mushoku Tensei',href:'mushoku-tensei.html',cover:'mushoku-tensei-500x750.jpg',watched:mushokuWatched(profile),total:62},
     {title:'Kekkon Yubiwa Monogatari',href:'kekkon-yubiwa-monogatari.html',cover:'kekkon-yubiwa-monogatari-500x750.jpg',watched:kekkonYubiwaWatched(profile),total:25},
     {title:'Digimon Adventure',href:'digimon-adventure.html',cover:'digimon-adventure-500x750.jpg',watched:digimonWatched(profile),total:119},
+    {title:'Digimon Beatbreak',href:'digimon-beatbreak.html',cover:'digimon-beatbreak-hd.jpg',watched:profileProgress(profile,'digimonBeatbreak'),total:40},
     {title:'Demon Slayer',href:'demon-slayer.html',cover:'demon-slayer-500x750.jpg',watched:demonSlayerWatched(profile),total:65},
     {title:'The Elusive Samurai',href:'the-elusive-samurai.html',cover:'the-elusive-samurai-500x750.jpg',watched:elusiveSamuraiWatched(profile),total:24},
     {title:'X-Men Evolution',href:'x-men-evolution.html',cover:'x-men-evolution-500x750.jpg',watched:xMenEvolutionWatched(profile),total:52}
