@@ -94,11 +94,39 @@ function renderMovieProgress() {
   showStatus(progressStatus, currentUser ? 'Seu progresso fica salvo na sua conta.' : 'Entre na sua conta para salvar seu progresso.');
 }
 
+function renderProfilePage() {
+  if (root.dataset.page !== 'profile') return;
+  const content = document.querySelector('#profileContent');
+  const gate = document.querySelector('#profileGate');
+  content.hidden = !currentUser || !profile;
+  gate.hidden = Boolean(currentUser && profile);
+  if (!currentUser || !profile) return;
+  const xp = Number(profile.xp) || 0;
+  const level = Number(profile.level) || 1;
+  const next = xpForLevel(level + 1);
+  const start = xpForLevel(level);
+  const percent = clamp(((xp - start) / (next - start)) * 100, 0, 100);
+  const nick = profile.nick || currentUser.displayName || currentUser.email?.split('@')[0] || 'Usuário';
+  const minutes = profile.movieProgress?.obsession2026 || 0;
+  document.querySelector('#pageAvatar').textContent = nick.charAt(0).toUpperCase();
+  document.querySelector('#pageNick').textContent = nick;
+  document.querySelector('#pageEmail').textContent = currentUser.email || '';
+  document.querySelector('#pageLevel').textContent = level;
+  document.querySelector('#pageXp').textContent = `${xp} XP`;
+  document.querySelector('#pageMinutes').textContent = totalXp(profile.movieProgress);
+  document.querySelector('#nextLevelText').textContent = `${xp - start} / ${next - start} XP`;
+  document.querySelector('#levelProgress').style.width = `${percent}%`;
+  document.querySelector('#historyProgress').textContent = `${minutes} de 108 minutos`;
+  document.querySelector('#historyXp').textContent = `${minutes} XP`;
+  document.querySelector('#historyBar').style.width = `${(minutes / 108) * 100}%`;
+}
+
 function renderAccount() {
   if (!currentUser || !profile) {
     authArea.innerHTML = '<button class="auth-button" id="openLogin" type="button">Entrar</button>';
     document.querySelector('#openLogin').addEventListener('click', () => openModal(authModal));
     renderMovieProgress();
+    renderProfilePage();
     return;
   }
   const xp = Number(profile.xp) || 0;
@@ -109,13 +137,10 @@ function renderAccount() {
   const nick = profile.nick || currentUser.displayName || currentUser.email?.split('@')[0] || 'Usuário';
   authArea.innerHTML = `<button class="header-profile" id="openProfile" type="button"><span class="profile-avatar">${escapeHtml(nick.charAt(0).toUpperCase())}</span><span class="header-profile-info"><span><strong>${escapeHtml(nick)}</strong><b>Nível ${level}</b></span><i class="header-xp-track"><i style="width:${percent}%"></i></i><small>${xp} XP</small></span></button>`;
   document.querySelector('#openProfile').addEventListener('click', () => {
-    document.querySelector('#profileEmail').textContent = currentUser.email || '';
-    document.querySelector('#profileLevel').textContent = level;
-    document.querySelector('#profileXp').textContent = `${xp} XP`;
-    document.querySelector('#profileMinutes').textContent = totalXp(profile.movieProgress);
-    openModal(profileModal);
+    window.location.href = root.dataset.page === 'movie' ? '../../perfil.html' : 'perfil.html';
   });
   renderMovieProgress();
+  renderProfilePage();
 }
 
 async function saveProfile(movieProgress, extra = {}) {
@@ -232,4 +257,6 @@ document.querySelector('#saveMinutes')?.addEventListener('click', async () => {
 });
 
 renderAccount();
+document.querySelector('#profileLogin')?.addEventListener('click', () => openModal(authModal));
+document.querySelector('#pageLogout')?.addEventListener('click', async () => { if (auth) await api.signOut(auth); });
 initialize();

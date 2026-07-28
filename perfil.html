@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu perfil — Filmes Loner</title>
+  <meta name="description" content="Consulte seu nível, experiência e filmes assistidos no Filmes Loner.">
+  <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="account-ui.css">
+</head>
+<body data-page="profile">
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">FL</span><strong>Filmes Loner</strong></a><nav><a href="index.html">Filmes</a><a class="active" href="perfil.html">Perfil</a></nav><div class="auth-area" id="authArea"></div></header>
+  <main class="profile-page">
+    <section class="profile-hero">
+      <div class="large-avatar" id="pageAvatar">FL</div>
+      <div><span class="eyebrow">MINHA CONTA</span><h1 id="pageNick">Seu perfil</h1><p id="pageEmail">Entre para acompanhar sua evolução.</p></div>
+    </section>
+    <section class="profile-grid" id="profileContent" hidden>
+      <article class="stat-card"><span>Nível atual</span><strong id="pageLevel">1</strong></article>
+      <article class="stat-card"><span>Experiência total</span><strong id="pageXp">0 XP</strong></article>
+      <article class="stat-card"><span>Minutos assistidos</span><strong id="pageMinutes">0</strong></article>
+      <article class="level-card">
+        <div><span>Progresso para o próximo nível</span><strong id="nextLevelText">0 / 100 XP</strong></div>
+        <div class="progress-track"><i id="levelProgress"></i></div>
+      </article>
+      <article class="history-card">
+        <div class="section-heading"><div><span class="eyebrow">HISTÓRICO</span><h2>Meus filmes</h2></div></div>
+        <a class="history-movie" href="Filmes/Obsessao%202026/obsessao-2026.html">
+          <img src="Filmes/Obsessao%202026/obsessao-2026-hd.webp" alt="Capa de Obsessão (2026)">
+          <div><h3>Obsessão</h3><p id="historyProgress">0 de 108 minutos</p><div class="progress-track"><i id="historyBar"></i></div></div>
+          <strong id="historyXp">0 XP</strong>
+        </a>
+      </article>
+      <button class="button profile-logout" id="pageLogout" type="button">Sair da conta</button>
+    </section>
+    <section class="profile-gate" id="profileGate"><h2>Entre para ver seu perfil</h2><p>Seu nível, XP e minutos assistidos ficam salvos na sua conta.</p><button class="button primary" id="profileLogin" type="button">Entrar</button></section>
+  </main>
+  <footer><a class="brand" href="index.html"><span class="brand-mark">FL</span><strong>Filmes Loner</strong></a><p>1 minuto assistido = 1 XP.</p></footer>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
