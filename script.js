@@ -122,22 +122,21 @@ function renderProfilePage() {
 }
 
 function initializeCatalog() {
-  const search = document.querySelector('#movieSearch');
-  if (search) search.addEventListener('input', () => {
-    const term = normalizeText(search.value.trim());
-    const results = document.querySelector('#searchResults');
-    const latest = document.querySelector('#latestSection');
-    latest.hidden = Boolean(term);
-    results.hidden = !term;
-    if (!term) return;
-    const matches = Object.values(MOVIE_CATALOG).filter((movie) => normalizeText(movie.title).includes(term));
-    results.innerHTML = matches.length ? matches.map((movie) => `<a class="movie-card" href="${movie.href}"><img src="${movie.image}" alt="Capa de ${escapeHtml(movie.title)}"><div><span class="tag">FILME</span><h2>${escapeHtml(movie.title)}</h2><p>${movie.year} • ${movie.runtime} minutos</p></div></a>`).join('') : '<p class="no-results">Nenhum filme encontrado.</p>';
-  });
   if (root.dataset.page === 'letter') {
     const letter = (new URLSearchParams(window.location.search).get('letra') || 'A').toLocaleUpperCase('pt-BR');
     document.querySelector('#letterTitle').textContent = `Filmes com ${letter}`;
     const titles = Object.values(MOVIE_CATALOG).filter((movie) => movie.title.toLocaleUpperCase('pt-BR').startsWith(letter)).sort((a, b) => a.title.localeCompare(b.title, 'pt-BR'));
     document.querySelector('#letterList').innerHTML = titles.length ? titles.map((movie) => `<a href="${movie.href}">${escapeHtml(movie.title)} <span>${movie.year}</span></a>`).join('') : '<p>Nenhum filme cadastrado nesta letra.</p>';
+    const search = document.querySelector('#letterSearch');
+    search.addEventListener('input', () => {
+      const term = normalizeText(search.value.trim());
+      let visible = 0;
+      document.querySelectorAll('#letterList a').forEach((link) => {
+        link.hidden = !normalizeText(link.textContent).includes(term);
+        if (!link.hidden) visible += 1;
+      });
+      document.querySelector('#letterEmpty').hidden = visible > 0 || !titles.length;
+    });
   }
 }
 
