@@ -31,12 +31,8 @@ let currentUser = null;
 let profile = null;
 
 const authArea = document.querySelector('#authArea');
-const progressCta = document.querySelector('#progressCta');
-const watchedMinutes = document.querySelector('#watchedMinutes');
-const movieXp = document.querySelector('#movieXp');
-const progressBar = document.querySelector('#progressBar');
-const minuteInput = document.querySelector('#minuteInput');
-const progressStatus = document.querySelector('#progressStatus');
+const watchedButton = document.querySelector('#watchedButton');
+const movieSaveStatus = document.querySelector('#movieSaveStatus');
 
 document.body.insertAdjacentHTML('beforeend', `
   <div class="modal" id="authModal" hidden>
@@ -84,14 +80,10 @@ function openModal(modal) { modal.hidden = false; }
 function closeModals() { document.querySelectorAll('.modal').forEach((modal) => { modal.hidden = true; }); }
 
 function renderMovieProgress() {
-  if (!movieId) return;
+  if (!movieId || !watchedButton) return;
   const minutes = profile?.movieProgress?.[movieId] || 0;
-  watchedMinutes.textContent = minutes;
-  movieXp.textContent = `${minutes} XP`;
-  progressBar.style.width = `${runtime ? (minutes / runtime) * 100 : 0}%`;
-  minuteInput.value = minutes || '';
-  progressCta.textContent = minutes > 0 ? 'Continuar Assistindo' : 'Começar a Assistir';
-  showStatus(progressStatus, currentUser ? 'Seu progresso fica salvo na sua conta.' : 'Entre na sua conta para salvar seu progresso.');
+  watchedButton.classList.toggle('watched', minutes >= runtime);
+  showStatus(movieSaveStatus, minutes >= runtime ? 'Salvo no seu perfil.' : '', minutes >= runtime ? 'ok' : '');
 }
 
 function renderProfilePage() {
@@ -246,14 +238,16 @@ document.querySelectorAll('[data-close]').forEach((button) => button.addEventLis
 document.querySelectorAll('.modal').forEach((modal) => modal.addEventListener('click', (event) => { if (event.target === modal) closeModals(); }));
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModals(); });
 
-document.querySelector('#saveMinutes')?.addEventListener('click', async () => {
+watchedButton?.addEventListener('click', async () => {
   if (!currentUser) { openModal(authModal); return; }
-  const minutes = Math.round(clamp(minuteInput.value, 0, runtime));
   try {
-    showStatus(progressStatus, 'Salvando…');
-    await saveProfile({ ...profile.movieProgress, [movieId]: minutes });
-    showStatus(progressStatus, `${minutes} minutos salvos. Você ganhou ${minutes} XP neste filme.`, 'ok');
-  } catch (error) { showStatus(progressStatus, 'Não foi possível salvar. Tente novamente.', 'error'); }
+    watchedButton.disabled = true;
+    showStatus(movieSaveStatus, 'Salvando…');
+    await saveProfile({ ...profile.movieProgress, [movieId]: runtime });
+    showStatus(movieSaveStatus, `Salvo no seu perfil: ${runtime} XP.`, 'ok');
+  } catch (error) {
+    showStatus(movieSaveStatus, 'Não foi possível salvar. Tente novamente.', 'error');
+  } finally { watchedButton.disabled = false; }
 });
 
 renderAccount();
