@@ -26,7 +26,7 @@
 .catalog-search { max-width:620px; height:54px; margin:30px 0 38px; display:flex; align-items:center; gap:12px; padding:0 18px; border:1px solid var(--line); border-radius:14px; background:var(--panel); }
 .catalog-search span { color:var(--orange); font-size:25px; }
 .catalog-search input { width:100%; border:0; outline:0; background:transparent; color:var(--text); font-size:16px; }
-.anime-catalog { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.anime-catalog { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:18px; }
 .catalog-card { overflow:hidden; border:1px solid var(--line); border-radius:16px; background:var(--panel); transition:transform .2s,border-color .2s; }
 .catalog-card:hover { transform:translateY(-5px); border-color:var(--orange); }
 .catalog-card img { width:100%; aspect-ratio:2/3; height:auto; object-fit:cover; display:block; }
@@ -63,3 +63,4 @@
   .sequence-step small { min-height:0; }
 }
 @media (min-width:761px) and (max-width:1150px) { .sequence-timeline { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (min-width:761px) and (max-width:1050px) { .anime-catalog { grid-template-columns:repeat(3,minmax(0,1fr)); } }
