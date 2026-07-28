@@ -2,7 +2,10 @@ import { firebaseConfig, firebaseReady } from './firebase-config.js';
 
 const MOVIE_DATA_VERSION = 1;
 const MOVIE_CATALOG = {
-  obsession2026: { title: 'Obsessão', runtime: 108, year: 2026, href: 'Filmes/Obsessao%202026/obsessao-2026.html', image: 'Filmes/Obsessao%202026/obsessao-2026-hd.webp' },
+  obsession2026: { title: 'Obsessão', runtime: 108, year: 2026, href: 'Filmes/Obsessao%202026/obsessao-2026.html', image: 'Filmes/Obsessao%202026/obsessao-2026-hd.jpg' },
+  supergirl2026: { title: 'Supergirl', runtime: 108, year: 2026, href: 'Filmes/Supergirl%202026/supergirl-2026.html', image: 'Filmes/Supergirl%202026/supergirl-2026-hd.webp' },
+  avatarAang2026: { title: 'Avatar Aang: O Último Mestre de Ar', runtime: 99, year: 2026, href: 'Filmes/Avatar%20Aang%20O%20Ultimo%20Mestre%20de%20Ar%202026/avatar-aang-2026.html', image: 'Filmes/Avatar%20Aang%20O%20Ultimo%20Mestre%20de%20Ar%202026/avatar-aang-2026-hd.webp' },
+  mastersUniverse2026: { title: 'Mestres do Universo', runtime: 140, year: 2026, href: 'Filmes/Mestres%20do%20Universo%202026/mestres-do-universo-2026.html', image: 'Filmes/Mestres%20do%20Universo%202026/mestres-do-universo-2026-hd.webp' },
   interstellar2014: { title: 'Interestelar', runtime: 169, year: 2014, href: 'Filmes/Interestelar%202014/interestelar-2014.html', image: 'Filmes/Interestelar%202014/interestelar-2014-hd.jpg' },
   parasite2019: { title: 'Parasita', runtime: 132, year: 2019, href: 'Filmes/Parasita%202019/parasita-2019.html', image: 'Filmes/Parasita%202019/parasita-2019-hd.jpg' },
   godfather1972: { title: 'O Poderoso Chefão', runtime: 175, year: 1972, href: 'Filmes/O%20Poderoso%20Chefao%201972/o-poderoso-chefao-1972.html', image: 'Filmes/O%20Poderoso%20Chefao%201972/o-poderoso-chefao-1972-hd.jpg' },
