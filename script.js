@@ -1,7 +1,15 @@
 import { firebaseConfig, firebaseReady } from './firebase-config.js';
 
 const MOVIE_DATA_VERSION = 1;
-const MOVIES = { obsession2026: 108 };
+const MOVIE_CATALOG = {
+  obsession2026: { title: 'Obsessão', runtime: 108, year: 2026, href: 'Filmes/Obsessao%202026/obsessao-2026.html', image: 'Filmes/Obsessao%202026/obsessao-2026-hd.webp' },
+  interstellar2014: { title: 'Interestelar', runtime: 169, year: 2014, href: 'Filmes/Interestelar%202014/interestelar-2014.html', image: 'Filmes/Interestelar%202014/interestelar-2014-hd.jpg' },
+  parasite2019: { title: 'Parasita', runtime: 132, year: 2019, href: 'Filmes/Parasita%202019/parasita-2019.html', image: 'Filmes/Parasita%202019/parasita-2019-hd.jpg' },
+  godfather1972: { title: 'O Poderoso Chefão', runtime: 175, year: 1972, href: 'Filmes/O%20Poderoso%20Chefao%201972/o-poderoso-chefao-1972.html', image: 'Filmes/O%20Poderoso%20Chefao%201972/o-poderoso-chefao-1972-hd.jpg' },
+  spiritedAway2001: { title: 'A Viagem de Chihiro', runtime: 125, year: 2001, href: 'Filmes/A%20Viagem%20de%20Chihiro%202001/a-viagem-de-chihiro-2001.html', image: 'Filmes/A%20Viagem%20de%20Chihiro%202001/a-viagem-de-chihiro-2001-hd.jpg' },
+  madMax2015: { title: 'Mad Max: Estrada da Fúria', runtime: 120, year: 2015, href: 'Filmes/Mad%20Max%20Estrada%20da%20Furia%202015/mad-max-estrada-da-furia-2015.html', image: 'Filmes/Mad%20Max%20Estrada%20da%20Furia%202015/mad-max-estrada-da-furia-2015-hd.jpg' }
+};
+const MOVIES = Object.fromEntries(Object.entries(MOVIE_CATALOG).map(([id, movie]) => [id, movie.runtime]));
 const root = document.body;
 const movieId = root.dataset.movie || '';
 const runtime = Number(root.dataset.runtime || 0);
@@ -19,6 +27,7 @@ const clamp = (value, min, max) => Math.min(max, Math.max(min, Number(value) || 
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
 }[character]));
+const normalizeText = (value) => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR');
 const cleanProgress = (progress = {}) => Object.fromEntries(
   Object.entries(MOVIES).map(([id, minutes]) => [id, Math.round(clamp(progress[id], 0, minutes))])
 );
@@ -99,7 +108,6 @@ function renderProfilePage() {
   const start = xpForLevel(level);
   const percent = clamp(((xp - start) / (next - start)) * 100, 0, 100);
   const nick = profile.nick || currentUser.displayName || currentUser.email?.split('@')[0] || 'Usuário';
-  const minutes = profile.movieProgress?.obsession2026 || 0;
   document.querySelector('#pageAvatar').textContent = nick.charAt(0).toUpperCase();
   document.querySelector('#pageNick').textContent = nick;
   document.querySelector('#pageEmail').textContent = currentUser.email || '';
@@ -108,9 +116,29 @@ function renderProfilePage() {
   document.querySelector('#pageMinutes').textContent = totalXp(profile.movieProgress);
   document.querySelector('#nextLevelText').textContent = `${xp - start} / ${next - start} XP`;
   document.querySelector('#levelProgress').style.width = `${percent}%`;
-  document.querySelector('#historyProgress').textContent = `${minutes} de 108 minutos`;
-  document.querySelector('#historyXp').textContent = `${minutes} XP`;
-  document.querySelector('#historyBar').style.width = `${(minutes / 108) * 100}%`;
+  const watched = Object.entries(MOVIE_CATALOG).filter(([id, movie]) => (profile.movieProgress?.[id] || 0) >= movie.runtime);
+  const historyList = document.querySelector('#historyList');
+  historyList.innerHTML = watched.length ? watched.map(([id, movie]) => `<a class="history-movie" href="${movie.href}"><img src="${movie.image}" alt="Capa de ${escapeHtml(movie.title)}"><div><h3>${escapeHtml(movie.title)}</h3><p>${movie.runtime} minutos assistidos</p><div class="progress-track"><i style="width:100%"></i></div></div><strong>${movie.runtime} XP</strong></a>`).join('') : '<p class="empty-history">Você ainda não marcou nenhum filme como assistido.</p>';
+}
+
+function initializeCatalog() {
+  const search = document.querySelector('#movieSearch');
+  if (search) search.addEventListener('input', () => {
+    const term = normalizeText(search.value.trim());
+    const results = document.querySelector('#searchResults');
+    const latest = document.querySelector('#latestSection');
+    latest.hidden = Boolean(term);
+    results.hidden = !term;
+    if (!term) return;
+    const matches = Object.values(MOVIE_CATALOG).filter((movie) => normalizeText(movie.title).includes(term));
+    results.innerHTML = matches.length ? matches.map((movie) => `<a class="movie-card" href="${movie.href}"><img src="${movie.image}" alt="Capa de ${escapeHtml(movie.title)}"><div><span class="tag">FILME</span><h2>${escapeHtml(movie.title)}</h2><p>${movie.year} • ${movie.runtime} minutos</p></div></a>`).join('') : '<p class="no-results">Nenhum filme encontrado.</p>';
+  });
+  if (root.dataset.page === 'letter') {
+    const letter = (new URLSearchParams(window.location.search).get('letra') || 'A').toLocaleUpperCase('pt-BR');
+    document.querySelector('#letterTitle').textContent = `Filmes com ${letter}`;
+    const titles = Object.values(MOVIE_CATALOG).filter((movie) => movie.title.toLocaleUpperCase('pt-BR').startsWith(letter)).sort((a, b) => a.title.localeCompare(b.title, 'pt-BR'));
+    document.querySelector('#letterList').innerHTML = titles.length ? titles.map((movie) => `<a href="${movie.href}">${escapeHtml(movie.title)} <span>${movie.year}</span></a>`).join('') : '<p>Nenhum filme cadastrado nesta letra.</p>';
+  }
 }
 
 function renderAccount() {
@@ -253,4 +281,5 @@ watchedButton?.addEventListener('click', async () => {
 renderAccount();
 document.querySelector('#profileLogin')?.addEventListener('click', () => openModal(authModal));
 document.querySelector('#pageLogout')?.addEventListener('click', async () => { if (auth) await api.signOut(auth); });
+initializeCatalog();
 initialize();
