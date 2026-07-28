@@ -4,35 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Filmes Loner</title>
-  <meta name="description" content="Filmes Loner — seu novo espaço para descobrir filmes.">
+  <meta name="description" content="Filmes Loner — acompanhe os minutos assistidos e ganhe XP.">
   <link rel="icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="account-ui.css">
 </head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Filmes Loner — início">
-      <span class="brand-mark">FL</span>
-      <strong>Filmes Loner</strong>
-    </a>
-  </header>
-
+<body data-page="home">
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">FL</span><strong>Filmes Loner</strong></a><nav><a class="active" href="index.html">Filmes</a></nav><div class="auth-area" id="authArea"></div></header>
   <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">FILMES LONER</span>
-        <h1>Uma nova história<br><em>começa aqui.</em></h1>
-        <p>O novo acervo de filmes está sendo preparado.</p>
-      </div>
-      <div class="hero-orb" aria-hidden="true"><span>▶</span></div>
-    </section>
+    <section class="hero"><div class="hero-copy"><span class="eyebrow">FILMES LONER</span><h1>Grandes histórias.<br><em>Minutos que viram XP.</em></h1><p>Marque quantos minutos assistiu e evolua sua conta. Cada minuto vale 1 XP.</p><a class="button primary" href="#filmes">Explorar filmes</a></div><div class="hero-orb" aria-hidden="true"><span>▶</span></div></section>
+    <section class="section" id="filmes"><div class="section-heading"><div><span class="eyebrow">PRIMEIRO TÍTULO</span><h2>Filmes disponíveis</h2></div></div><div class="movie-grid"><a class="movie-card" href="Filmes/Obsessao%202026/obsessao-2026.html"><img src="Filmes/Obsessao%202026/obsessao-2026-hd.webp" width="1680" height="2986" alt="Capa de Obsessão (2026)"><div><span class="tag">TERROR • SUSPENSE</span><h3>Obsessão</h3><p>2026 • 108 minutos • até 108 XP</p></div></a></div></section>
   </main>
-
-  <footer>
-    <a class="brand" href="index.html"><span class="brand-mark">FL</span><strong>Filmes Loner</strong></a>
-    <p>Seu espaço para grandes histórias.</p>
-  </footer>
+  <footer><a class="brand" href="index.html"><span class="brand-mark">FL</span><strong>Filmes Loner</strong></a><p>1 minuto assistido = 1 XP.</p></footer>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
